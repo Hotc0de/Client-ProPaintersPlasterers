@@ -25,3 +25,9 @@ export type ServiceItem = {
   title: LocalizedText
   description: LocalizedText
 }
+
+export type SectionIntroContent = {
+  eyebrow: LocalizedText
+  title: LocalizedText
+  description: LocalizedText
+}

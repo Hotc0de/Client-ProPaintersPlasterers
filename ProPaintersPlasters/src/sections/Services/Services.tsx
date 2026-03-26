@@ -1,4 +1,5 @@
 import type { Locale } from '../../content/types'
+import { SectionHeading } from '../../components/common/SectionHeading'
 import { serviceItems, servicesContent } from '../../content/home'
 import { getLocalizedValue } from '../../utils/getLocalizedValue'
 import './Services.css'
@@ -11,17 +12,13 @@ export function Services({ locale }: ServicesProps) {
   return (
     <section id="services" className="services">
       <div className="services__inner">
-        <p className="services__eyebrow">
-          {getLocalizedValue(servicesContent.sectionTitle, locale)}
-        </p>
-
-        <h2 className="services__title">
-          {getLocalizedValue(servicesContent.sectionTitle, locale)}
-        </h2>
-
-        <p className="services__description">
-          {getLocalizedValue(servicesContent.sectionDescription, locale)}
-        </p>
+        <SectionHeading
+          locale={locale}
+          eyebrow={servicesContent.eyebrow}
+          title={servicesContent.title}
+          description={servicesContent.description}
+          align="left"
+        />
 
         <div className="services__grid">
           {serviceItems.map((service) => (

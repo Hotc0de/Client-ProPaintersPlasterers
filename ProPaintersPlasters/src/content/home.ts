@@ -1,4 +1,4 @@
-import type { HeroContent, ServiceItem } from './types'
+import type { HeroContent, SectionIntroContent, ServiceItem } from './types'
 
 
 export const heroContent: HeroContent = {
@@ -29,13 +29,18 @@ export const heroContent: HeroContent = {
   },
 }
 
-export const servicesContent = {
-  sectionTitle: {
+export const servicesContent: SectionIntroContent = {
+  eyebrow: {
+    en: 'What We Do',
+    vi: 'Chúng Tôi Làm Gì',
+    zh: '我们的业务',
+  },
+  title: {
     en: 'Our Services',
     vi: 'Dịch Vụ Của Chúng Tôi',
     zh: '我们的服务',
   },
-  sectionDescription: {
+  description: {
     en: 'We provide reliable painting and plastering services for residential and commercial projects.',
     vi: 'Chúng tôi cung cấp dịch vụ sơn và bả đáng tin cậy cho các công trình nhà ở và thương mại.',
     zh: '我们为住宅和商业项目提供可靠的油漆和抹灰服务。',
