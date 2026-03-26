@@ -19,3 +19,9 @@ export type ContactInfo = {
   email: string
   address: LocalizedText
 }
+
+export type ServiceItem = {
+  id: string
+  title: LocalizedText
+  description: LocalizedText
+}

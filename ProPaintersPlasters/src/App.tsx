@@ -1,6 +1,7 @@
 import { Header } from './components/layout/Header'
 import { useLanguage } from './hooks/useLanguage'
 import { Hero } from './sections/Hero/Hero'
+import { Services } from './sections/Services/Services'
 
 export default function App() {
   const { locale, setLocale } = useLanguage('en')
@@ -11,6 +12,7 @@ export default function App() {
 
       <main>
         <Hero locale={locale} />
+        <Services locale={locale} />
       </main>
     </div>
   )
