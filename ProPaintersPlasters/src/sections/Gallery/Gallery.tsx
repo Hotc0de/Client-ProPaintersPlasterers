@@ -29,12 +29,12 @@ export function Gallery({ locale }: GalleryProps) {
                   alt={getLocalizedValue(item.alt, locale)}
                   className="gallery-card__image"
                 />
-              </div>
 
-              <div className="gallery-card__content">
-                <h3 className="gallery-card__title">
-                  {getLocalizedValue(item.title, locale)}
-                </h3>
+                <div className="gallery-card__overlay">
+                  <h3 className="gallery-card__title">
+                    {getLocalizedValue(item.title, locale)}
+                  </h3>
+                </div>
               </div>
             </article>
           ))}
