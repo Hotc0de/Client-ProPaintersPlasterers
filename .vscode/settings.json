@@ -1,0 +1,13 @@
+{
+  "terminal.integrated.cwd": "/Users/trungho/Documents/Web Design/Projects/ProPaintersPlasters",
+  "terminal.integrated.profiles.osx": {
+    "zsh (Node 25)": {
+      "path": "zsh",
+      "args": [
+        "-lc",
+        "source ~/.nvm/nvm.sh && nvm use 25 >/dev/null && exec zsh -i"
+      ]
+    }
+  },
+  "terminal.integrated.defaultProfile.osx": "zsh (Node 25)"
+}

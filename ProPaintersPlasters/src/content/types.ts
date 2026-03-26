@@ -26,6 +26,13 @@ export type ServiceItem = {
   description: LocalizedText
 }
 
+export type GalleryItem = {
+  id: string
+  image: string
+  alt: LocalizedText
+  title: LocalizedText
+}
+
 export type SectionIntroContent = {
   eyebrow: LocalizedText
   title: LocalizedText
