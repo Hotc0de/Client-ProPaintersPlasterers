@@ -1,23 +1,7 @@
 .site-footer {
-  background:
-    linear-gradient(180deg, rgba(3, 8, 15, 0.98) 0%, rgba(2, 6, 12, 1) 100%);
+  background: #111111;
   color: #d6d6d6;
-  padding: 70px 20px 30px;
-  border-top: 1px solid rgba(212, 175, 55, 0.12);
-  position: relative;
-}
-
-.site-footer::before {
-  content: '';
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(212, 175, 55, 0.28) 50%,
-    transparent 100%
-  );
+  padding: 60px 20px 30px;
 }
 
 .site-footer__inner {
@@ -39,37 +23,34 @@
   font-size: 20px;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 18px;
-  letter-spacing: 0.2px;
+  margin-bottom: 16px;
 }
 
 .site-footer__text {
   margin-bottom: 10px;
   font-size: 15px;
-  color: #b7c0cf;
+  color: #b0b0b0;
 }
 
 .site-footer__link {
   display: block;
   margin-bottom: 10px;
   text-decoration: none;
-  color: #b7c0cf;
+  color: #b0b0b0;
   font-size: 15px;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .site-footer__link:hover {
   color: #ffffff;
-  transform: translateX(2px);
 }
 
 .site-footer__heading {
   font-size: 14px;
   text-transform: uppercase;
-  letter-spacing: 1.4px;
-  margin-bottom: 16px;
-  color: var(--color-accent);
-  font-weight: 700;
+  letter-spacing: 1.2px;
+  margin-bottom: 14px;
+  color: #ffffff;
 }
 
 .site-footer__nav {
@@ -79,49 +60,27 @@
 
 .site-footer__nav a {
   text-decoration: none;
-  color: #b7c0cf;
+  color: #b0b0b0;
   font-size: 15px;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .site-footer__nav a:hover {
   color: #ffffff;
-  transform: translateX(2px);
 }
 
 .site-footer__bottom {
   max-width: var(--container-width);
-  margin: 42px auto 0;
+  margin: 40px auto 0;
   padding-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   font-size: 13px;
-  color: #7f8897;
+  color: #888;
 }
 
 @media (max-width: 768px) {
   .site-footer__inner {
     grid-template-columns: 1fr;
     gap: 30px;
-  }
-}
-
-@media (max-width: 600px) {
-  .site-footer {
-    padding: 56px 16px 24px;
-  }
-
-  .site-footer__company {
-    font-size: 18px;
-  }
-
-  .site-footer__text,
-  .site-footer__link,
-  .site-footer__nav a {
-    font-size: 14px;
-  }
-
-  .site-footer__bottom {
-    margin-top: 32px;
-    font-size: 12px;
   }
 }
