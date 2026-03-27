@@ -1,73 +1,63 @@
-.site-footer {
-  background: #151515;
-  color: #fff;
-  padding: 70px 20px 24px;
+.footer {
+  background: #111111;
+  color: #d6d6d6;
+  padding: 60px 20px 30px;
 }
 
-.site-footer__inner {
+.footer__inner {
   max-width: var(--container-width);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 40px;
-  padding-bottom: 32px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  grid-template-columns: 1.4fr 1fr;
+  gap: 60px;
 }
 
-.site-footer__company {
-  margin-bottom: 12px;
-  font-size: 24px;
-}
-
-.site-footer__text {
-  margin-bottom: 10px;
-  color: rgba(255, 255, 255, 0.72);
-}
-
-.site-footer__link {
-  display: block;
-  margin-bottom: 8px;
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: none;
-  transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.site-footer__link:hover {
-  color: #fff;
-  transform: translateX(2px);
-}
-
-.site-footer__heading {
+.footer__brand {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
   margin-bottom: 16px;
-  font-size: 18px;
 }
 
-.site-footer__nav {
-  display: grid;
-  gap: 10px;
+.footer__text {
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #b0b0b0;
 }
 
-.site-footer__nav a {
-  color: rgba(255, 255, 255, 0.88);
-  text-decoration: none;
-  transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.site-footer__nav a:hover {
-  color: #fff;
-  transform: translateX(2px);
-}
-
-.site-footer__bottom {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  padding-top: 20px;
+.footer__links-title {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.62);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 14px;
+  color: #ffffff;
 }
 
-@media (max-width: 768px) {
-  .site-footer__inner {
-    grid-template-columns: 1fr;
-  }
+.footer__links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer__links li {
+  margin-bottom: 10px;
+}
+
+.footer__links a {
+  text-decoration: none;
+  color: #b0b0b0;
+  font-size: 15px;
+  transition: color 0.2s ease;
+}
+
+.footer__links a:hover {
+  color: #ffffff;
+}
+
+.footer__bottom {
+  max-width: var(--container-width);
+  margin: 40px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 13px;
+  color: #888;
 }
