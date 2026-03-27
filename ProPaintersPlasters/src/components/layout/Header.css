@@ -2,12 +2,13 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e5e5;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .site-header__inner {
-  max-width: 1200px;
+  max-width: var(--container-width);
   margin: 0 auto;
   padding: 16px 20px;
   display: flex;
@@ -21,7 +22,7 @@
 }
 
 .site-header__logo {
-  color: #111;
+  color: var(--color-dark);
   text-decoration: none;
   font-size: 20px;
   font-weight: 700;
@@ -33,7 +34,7 @@
 }
 
 .site-header__nav a {
-  color: #111;
+  color: var(--color-text);
   text-decoration: none;
   font-weight: 500;
 }
@@ -45,16 +46,16 @@
 
 .site-header__languages button {
   padding: 8px 12px;
-  border: 1px solid #ccc;
-  background: #fff;
-  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
   cursor: pointer;
 }
 
 .site-header__languages button.is-active {
-  background: #111;
+  background: var(--color-dark);
   color: #fff;
-  border-color: #111;
+  border-color: var(--color-dark);
 }
 
 @media (max-width: 768px) {

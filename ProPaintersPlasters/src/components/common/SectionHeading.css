@@ -13,21 +13,24 @@
 .section-heading__eyebrow {
   margin-bottom: 12px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
+  color: var(--color-accent);
 }
 
 .section-heading__title {
   margin-bottom: 16px;
   font-size: 36px;
   line-height: 1.2;
+  color: var(--color-dark);
 }
 
 .section-heading__description {
   max-width: 700px;
   font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.7;
+  color: var(--color-text-muted);
 }
 
 .section-heading--center .section-heading__description {

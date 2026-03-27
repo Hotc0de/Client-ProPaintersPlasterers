@@ -1,6 +1,6 @@
 .hero {
-  padding: 80px 20px;
-  background: #f8f8f8;
+  padding: var(--space-section) 20px;
+  background: linear-gradient(180deg, #f7f4ef 0%, #f2eee8 100%);
 }
 
 .hero__content {
@@ -11,22 +11,25 @@
 .hero__eyebrow {
   margin-bottom: 12px;
   font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 1px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
+  color: var(--color-accent);
 }
 
 .hero__title {
   margin-bottom: 20px;
-  font-size: 44px;
-  line-height: 1.1;
+  font-size: 52px;
+  line-height: 1.08;
+  color: var(--color-dark);
 }
 
 .hero__description {
-  max-width: 700px;
+  max-width: 720px;
   margin-bottom: 28px;
   font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.7;
+  color: var(--color-text-muted);
 }
 
 .hero__actions {
@@ -38,28 +41,35 @@
 .hero__button {
   display: inline-block;
   padding: 14px 22px;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.hero__button:hover {
+  transform: translateY(-2px);
 }
 
 .hero__button--primary {
-  background: #111;
+  background: var(--color-dark);
   color: #fff;
+  box-shadow: var(--shadow-soft);
 }
 
 .hero__button--secondary {
-  border: 1px solid #111;
-  color: #111;
+  border: 1px solid var(--color-dark);
+  color: var(--color-dark);
+  background: transparent;
 }
 
 @media (max-width: 768px) {
   .hero {
-    padding: 60px 20px;
+    padding: var(--space-section-mobile) 20px;
   }
 
   .hero__title {
-    font-size: 32px;
+    font-size: 36px;
   }
 
   .hero__description {
