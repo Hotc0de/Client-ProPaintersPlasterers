@@ -1,52 +1,52 @@
-import { navigationItems } from '../../content/navigation'
-import { companyName, contactInfo, footerContent } from '../../content/site'
-import type { Locale } from '../../content/types'
-import { getLocalizedValue } from '../../utils/getLocalizedValue'
 import './Footer.css'
 
-type FooterProps = {
-  locale: Locale
-}
-
-export function Footer({ locale }: FooterProps) {
-  const currentYear = new Date().getFullYear()
-
+export function Footer() {
   return (
     <footer className="site-footer">
       <div className="site-footer__inner">
+
+        {/* LEFT - BRAND */}
         <div className="site-footer__brand">
-          <h2 className="site-footer__company">{companyName}</h2>
+          <h2 className="site-footer__company">
+            Pro Painters & Plasters
+          </h2>
+
           <p className="site-footer__text">
-            {getLocalizedValue(contactInfo.address, locale)}
+            Christchurch, New Zealand
           </p>
-          <a className="site-footer__link" href={`tel:${contactInfo.phone}`}>
-            {contactInfo.phone}
-          </a>
-          <a className="site-footer__link" href={`mailto:${contactInfo.email}`}>
-            {contactInfo.email}
+
+          <p className="site-footer__text">
+            +64 21 000 0000
+          </p>
+
+          <a
+            href="mailto:hello@propainters.co.nz"
+            className="site-footer__link"
+          >
+            hello@propainters.co.nz
           </a>
         </div>
 
+        {/* RIGHT - NAV */}
         <div className="site-footer__nav-block">
           <h3 className="site-footer__heading">
-            {getLocalizedValue(footerContent.navigationLabel, locale)}
+            Quick Links
           </h3>
 
           <nav className="site-footer__nav">
-            {navigationItems.map((item) => (
-              <a key={item.id} href={item.href}>
-                {getLocalizedValue(item.label, locale)}
-              </a>
-            ))}
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
           </nav>
         </div>
+
       </div>
 
+      {/* BOTTOM */}
       <div className="site-footer__bottom">
-        <p>
-          © {currentYear} {companyName}.{' '}
-          {getLocalizedValue(footerContent.copyright, locale)}
-        </p>
+        © {new Date().getFullYear()} Pro Painters & Plasters. All rights reserved.
       </div>
     </footer>
   )
