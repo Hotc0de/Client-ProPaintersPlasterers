@@ -11,6 +11,7 @@ import type {
   HeroContent,
   SectionIntroContent,
   ServiceItem,
+  StatItem,
 } from './types'
 
 
@@ -41,6 +42,36 @@ export const heroContent: HeroContent = {
     zh: '查看我们的作品',
   },
 }
+
+export const heroStats: StatItem[] = [
+  {
+    id: 'projects',
+    value: '200+',
+    label: {
+      en: 'Completed projects',
+      vi: 'Dự án đã hoàn thành',
+      zh: '已完成项目',
+    },
+  },
+  {
+    id: 'experience',
+    value: '10+',
+    label: {
+      en: 'Years of experience',
+      vi: 'Năm kinh nghiệm',
+      zh: '年经验',
+    },
+  },
+  {
+    id: 'clients',
+    value: '100%',
+    label: {
+      en: 'Focus on client satisfaction',
+      vi: 'Tập trung vào sự hài lòng khách hàng',
+      zh: '专注客户满意度',
+    },
+  },
+]
 
 export const servicesContent: SectionIntroContent = {
   eyebrow: {

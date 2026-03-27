@@ -72,3 +72,10 @@ export type NavigationItem = {
   label: LocalizedText
   href: string
 }
+
+export type StatItem = {
+  id: string
+  value: string
+  label: LocalizedText
+}
+
