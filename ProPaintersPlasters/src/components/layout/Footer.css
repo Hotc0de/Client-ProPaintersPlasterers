@@ -27,8 +27,14 @@
 .site-footer__link {
   display: block;
   margin-bottom: 8px;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.site-footer__link:hover {
+  color: #fff;
+  transform: translateX(2px);
 }
 
 .site-footer__heading {
@@ -44,11 +50,12 @@
 .site-footer__nav a {
   color: rgba(255, 255, 255, 0.88);
   text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.site-footer__nav a:hover,
-.site-footer__link:hover {
+.site-footer__nav a:hover {
   color: #fff;
+  transform: translateX(2px);
 }
 
 .site-footer__bottom {
