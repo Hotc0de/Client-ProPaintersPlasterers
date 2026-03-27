@@ -1,8 +1,11 @@
 import galleryImage1 from '../assets/images/gallery/gallery-1.jpg'
 import galleryImage2 from '../assets/images/gallery/gallery-2.jpg'
 import galleryImage3 from '../assets/images/gallery/gallery-3.jpg'
+import aboutImage from '../assets/images/about/about-main.jpeg'
 
 import type {
+  AboutContent,
+  FeatureItem,
   GalleryItem,
   HeroContent,
   SectionIntroContent,
@@ -157,6 +160,57 @@ export const galleryItems: GalleryItem[] = [
       en: 'Smooth Plaster Finish',
       vi: 'Bề Mặt Bả Mịn',
       zh: '平整抹灰效果',
+    },
+  },
+]
+
+export const aboutContent: AboutContent = {
+  eyebrow: {
+    en: 'Why Choose Us',
+    vi: 'Tại Sao Chọn Chúng Tôi',
+    zh: '为什么选择我们',
+  },
+  title: {
+    en: 'Reliable workmanship with clear communication',
+    vi: 'Tay nghề đáng tin cậy cùng giao tiếp rõ ràng',
+    zh: '可靠施工与清晰沟通',
+  },
+  description: {
+    en: 'We focus on quality finishes, dependable service, and a smooth experience from the first quote to the final result.',
+    vi: 'Chúng tôi tập trung vào chất lượng hoàn thiện, dịch vụ đáng tin cậy và trải nghiệm suôn sẻ từ báo giá đầu tiên đến kết quả cuối cùng.',
+    zh: '我们专注于高质量完工、可靠服务，以及从首次报价到最终成果的顺畅体验。',
+  },
+  image: aboutImage,
+  imageAlt: {
+    en: 'Painting and plastering team at work',
+    vi: 'Đội ngũ sơn và bả đang làm việc',
+    zh: '油漆和抹灰团队施工中',
+  },
+}
+
+export const aboutFeatures: FeatureItem[] = [
+  {
+    id: 'quality',
+    text: {
+      en: 'Quality finishes for homes and commercial spaces',
+      vi: 'Hoàn thiện chất lượng cho nhà ở và không gian thương mại',
+      zh: '为住宅和商业空间提供高质量完工效果',
+    },
+  },
+  {
+    id: 'communication',
+    text: {
+      en: 'Clear communication throughout the project',
+      vi: 'Giao tiếp rõ ràng trong suốt quá trình thực hiện',
+      zh: '项目全过程清晰沟通',
+    },
+  },
+  {
+    id: 'reliable',
+    text: {
+      en: 'Reliable service you can count on',
+      vi: 'Dịch vụ đáng tin cậy mà bạn có thể yên tâm',
+      zh: '值得信赖的服务',
     },
   },
 ]

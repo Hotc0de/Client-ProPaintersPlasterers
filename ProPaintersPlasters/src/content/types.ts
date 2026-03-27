@@ -33,6 +33,19 @@ export type GalleryItem = {
   title: LocalizedText
 }
 
+export type FeatureItem = {
+  id: string
+  text: LocalizedText
+}
+
+export type AboutContent = {
+  eyebrow: LocalizedText
+  title: LocalizedText
+  description: LocalizedText
+  image: string
+  imageAlt: LocalizedText
+}
+
 export type SectionIntroContent = {
   eyebrow: LocalizedText
   title: LocalizedText
