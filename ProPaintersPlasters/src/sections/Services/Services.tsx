@@ -22,7 +22,7 @@ export function Services({ locale }: ServicesProps) {
 
         <div className="services__grid">
           {serviceItems.map((service, index) => (
-            <article key={service.id} className="service-card">
+            <article key={service.id} className="service-card card-hover">
               <div className="service-card__badge">
                 {String(index + 1).padStart(2, '0')}
               </div>

@@ -22,7 +22,7 @@ export function Gallery({ locale }: GalleryProps) {
 
         <div className="gallery__grid">
           {galleryItems.map((item) => (
-            <article key={item.id} className="gallery-card">
+            <article key={item.id} className="gallery-card card-hover">
               <div className="gallery-card__image-wrapper">
                 <img
                   src={item.image}

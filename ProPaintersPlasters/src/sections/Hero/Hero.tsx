@@ -27,11 +27,11 @@ export function Hero({ locale }: HeroProps) {
           </p>
 
           <div className="hero__actions">
-            <a href="#contact" className="hero__button hero__button--primary">
+            <a href="#contact" className="btn btn--primary">
               {getLocalizedValue(heroContent.primaryButton, locale)}
             </a>
 
-            <a href="#gallery" className="hero__button hero__button--secondary">
+            <a href="#gallery" className="btn btn--secondary">
               {getLocalizedValue(heroContent.secondaryButton, locale)}
             </a>
           </div>

@@ -22,7 +22,7 @@ export function Contact({ locale }: ContactProps) {
         />
 
         <div className="contact__grid">
-          <article className="contact-card">
+          <article className="contact-card card-hover">
             <h3 className="contact-card__label">
               {getLocalizedValue(contactSectionContent.callLabel, locale)}
             </h3>
@@ -31,7 +31,7 @@ export function Contact({ locale }: ContactProps) {
             </a>
           </article>
 
-          <article className="contact-card">
+          <article className="contact-card card-hover">
             <h3 className="contact-card__label">
               {getLocalizedValue(contactSectionContent.emailLabel, locale)}
             </h3>
@@ -40,7 +40,7 @@ export function Contact({ locale }: ContactProps) {
             </a>
           </article>
 
-          <article className="contact-card">
+          <article className="contact-card card-hover">
             <h3 className="contact-card__label">
               {getLocalizedValue(contactSectionContent.addressLabel, locale)}
             </h3>
@@ -51,7 +51,7 @@ export function Contact({ locale }: ContactProps) {
         </div>
 
         <div className="contact__actions">
-          <a className="contact__button" href={`mailto:${contactInfo.email}`}>
+          <a className="btn btn--primary" href={`mailto:${contactInfo.email}`}>
             {getLocalizedValue(contactSectionContent.buttonText, locale)}
           </a>
         </div>
