@@ -51,3 +51,13 @@ export type SectionIntroContent = {
   title: LocalizedText
   description: LocalizedText
 }
+
+export type ContactSectionContent = {
+  eyebrow: LocalizedText
+  title: LocalizedText
+  description: LocalizedText
+  callLabel: LocalizedText
+  emailLabel: LocalizedText
+  addressLabel: LocalizedText
+  buttonText: LocalizedText
+}

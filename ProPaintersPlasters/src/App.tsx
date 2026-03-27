@@ -1,5 +1,6 @@
 import { Header } from './components/layout/Header'
 import { About } from './sections/About/About'
+import { Contact } from './sections/Contact/Contact'
 import { Gallery } from './sections/Gallery/Gallery'
 import { Hero } from './sections/Hero/Hero'
 import { Services } from './sections/Services/Services'
@@ -17,6 +18,7 @@ export default function App() {
         <Services locale={locale} />
         <Gallery locale={locale} />
         <About locale={locale} />
+        <Contact locale={locale} />
       </main>
     </div>
   )

@@ -5,6 +5,7 @@ import aboutImage from '../assets/images/about/about-main.jpeg'
 
 import type {
   AboutContent,
+  ContactSectionContent,
   FeatureItem,
   GalleryItem,
   HeroContent,
@@ -214,3 +215,41 @@ export const aboutFeatures: FeatureItem[] = [
     },
   },
 ]
+
+export const contactSectionContent: ContactSectionContent = {
+  eyebrow: {
+    en: 'Get In Touch',
+    vi: 'Liên Hệ Với Chúng Tôi',
+    zh: '联系我们',
+  },
+  title: {
+    en: 'Let’s talk about your next project',
+    vi: 'Hãy cùng trao đổi về dự án tiếp theo của bạn',
+    zh: '让我们聊聊您的下一个项目',
+  },
+  description: {
+    en: 'Contact us for painting and plastering services, quotes, or project enquiries.',
+    vi: 'Liên hệ với chúng tôi để được tư vấn dịch vụ sơn, bả, báo giá hoặc trao đổi về dự án.',
+    zh: '欢迎联系我们，咨询油漆、抹灰服务、报价或项目需求。',
+  },
+  callLabel: {
+    en: 'Call',
+    vi: 'Điện thoại',
+    zh: '电话',
+  },
+  emailLabel: {
+    en: 'Email',
+    vi: 'Email',
+    zh: '邮箱',
+  },
+  addressLabel: {
+    en: 'Location',
+    vi: 'Địa chỉ',
+    zh: '地址',
+  },
+  buttonText: {
+    en: 'Request a Quote',
+    vi: 'Yêu Cầu Báo Giá',
+    zh: '获取报价',
+  },
+}
