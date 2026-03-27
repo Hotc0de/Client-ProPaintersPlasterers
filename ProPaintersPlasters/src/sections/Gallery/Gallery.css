@@ -83,17 +83,3 @@
     grid-template-columns: 1fr;
   }
 }
-
-@media (max-width: 600px) {
-  .gallery {
-    padding: 56px 16px;
-  }
-
-  .gallery__grid {
-    gap: 18px;
-  }
-
-  .gallery-card__title {
-    font-size: 20px;
-  }
-}

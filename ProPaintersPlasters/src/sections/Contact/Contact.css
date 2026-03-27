@@ -54,6 +54,24 @@
   justify-content: center;
 }
 
+.contact__button {
+  display: inline-block;
+  padding: 16px 28px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(180deg, #e0bb49 0%, #c79d2b 100%);
+  color: #0b0f16;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  box-shadow: 0 0 22px rgba(212, 175, 55, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact__button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 28px rgba(212, 175, 55, 0.24);
+}
+
 @media (max-width: 900px) {
   .contact {
     padding: var(--space-section-mobile) 20px;
@@ -61,24 +79,5 @@
 
   .contact__grid {
     grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 600px) {
-  .contact {
-    padding: 56px 16px;
-  }
-
-  .contact__grid {
-    gap: 18px;
-    margin-bottom: 28px;
-  }
-
-  .contact-card {
-    padding: 22px 18px;
-  }
-
-  .contact-card__value {
-    font-size: 16px;
   }
 }
