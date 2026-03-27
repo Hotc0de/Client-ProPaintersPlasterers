@@ -2,7 +2,6 @@ import { heroContent, heroStats } from '../../content/home'
 import type { Locale } from '../../content/types'
 import { getLocalizedValue } from '../../utils/getLocalizedValue'
 import './Hero.css'
-
 import heroImage from '../../assets/images/hero/hero.jpg'
 
 type HeroProps = {
@@ -11,11 +10,20 @@ type HeroProps = {
 
 export function Hero({ locale }: HeroProps) {
   return (
-    <section className="hero">
+    <section
+      className="hero"
+      style={{ backgroundImage: `url(${heroImage})` }}
+    >
+      <div className="hero__overlay" />
+      <div className="hero__glow" />
+
       <div className="hero__inner">
         <div className="hero__content">
           <p className="hero__eyebrow">
-            {getLocalizedValue(heroContent.eyebrow, locale)}
+            <span className="hero__eyebrow-stars" aria-hidden="true">
+              ★★★★★
+            </span>
+            <span>{getLocalizedValue(heroContent.eyebrow, locale)}</span>
           </p>
 
           <h1 className="hero__title">
@@ -31,7 +39,7 @@ export function Hero({ locale }: HeroProps) {
               {getLocalizedValue(heroContent.primaryButton, locale)}
             </a>
 
-            <a href="#gallery" className="btn btn--secondary">
+            <a href="#gallery" className="btn btn--secondary hero__secondary-btn">
               {getLocalizedValue(heroContent.secondaryButton, locale)}
             </a>
           </div>
@@ -46,10 +54,6 @@ export function Hero({ locale }: HeroProps) {
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="hero__image">
-          <img src={heroImage} alt="Painting work" />
         </div>
       </div>
     </section>

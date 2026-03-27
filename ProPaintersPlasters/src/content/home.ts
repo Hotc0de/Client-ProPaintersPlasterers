@@ -1,3 +1,8 @@
+import serviceImage1 from '../assets/images/services/service-1.jpg'
+import serviceImage2 from '../assets/images/services/service-2.jpg'
+import serviceImage3 from '../assets/images/services/service-3.jpg'
+import serviceImage4 from '../assets/images/services/service-4.jpg'
+
 import galleryImage1 from '../assets/images/gallery/gallery-1.jpg'
 import galleryImage2 from '../assets/images/gallery/gallery-2.jpg'
 import galleryImage3 from '../assets/images/gallery/gallery-3.jpg'
@@ -15,6 +20,7 @@ import type {
 } from './types'
 
 
+// ================= HERO =================
 export const heroContent: HeroContent = {
   eyebrow: {
     en: 'Trusted local team',
@@ -43,6 +49,7 @@ export const heroContent: HeroContent = {
   },
 }
 
+// ================= STATS =================
 export const heroStats: StatItem[] = [
   {
     id: 'projects',
@@ -66,13 +73,14 @@ export const heroStats: StatItem[] = [
     id: 'clients',
     value: '100%',
     label: {
-      en: 'Focus on client satisfaction',
-      vi: 'Tập trung vào sự hài lòng khách hàng',
-      zh: '专注客户满意度',
+      en: 'Client satisfaction',
+      vi: 'Sự hài lòng khách hàng',
+      zh: '客户满意度',
     },
   },
 ]
 
+// ================= SERVICES INTRO =================
 export const servicesContent: SectionIntroContent = {
   eyebrow: {
     en: 'What We Do',
@@ -91,9 +99,11 @@ export const servicesContent: SectionIntroContent = {
   },
 }
 
+// ================= SERVICES =================
 export const serviceItems: ServiceItem[] = [
   {
     id: 'interior-painting',
+    image: serviceImage1,
     title: {
       en: 'Interior Painting',
       vi: 'Sơn Nội Thất',
@@ -101,12 +111,13 @@ export const serviceItems: ServiceItem[] = [
     },
     description: {
       en: 'Clean, careful painting for walls, ceilings, trims, and living spaces.',
-      vi: 'Sơn cẩn thận, sạch sẽ cho tường, trần, len tường và không gian sống.',
-      zh: '为墙面、天花板、线条和生活空间提供干净细致的油漆服务。',
+      vi: 'Sơn cẩn thận, sạch sẽ cho tường, trần và không gian sống.',
+      zh: '为墙面、天花板和生活空间提供细致专业的室内油漆服务。',
     },
   },
   {
     id: 'exterior-painting',
+    image: serviceImage2,
     title: {
       en: 'Exterior Painting',
       vi: 'Sơn Ngoại Thất',
@@ -114,25 +125,41 @@ export const serviceItems: ServiceItem[] = [
     },
     description: {
       en: 'Durable exterior finishes designed to protect and improve your property.',
-      vi: 'Lớp sơn ngoại thất bền đẹp giúp bảo vệ và nâng cao giá trị công trình.',
-      zh: '耐用的室外涂装可保护并提升您的房产外观。',
+      vi: 'Sơn ngoại thất bền đẹp giúp bảo vệ và nâng cấp công trình.',
+      zh: '耐用的外墙涂装可保护并提升您的房产外观。',
     },
   },
   {
-    id: 'plastering',
+    id: 'private-services',
+    image: serviceImage3,
     title: {
-      en: 'Plastering',
-      vi: 'Bả Tường',
-      zh: '抹灰服务',
+      en: 'Private Services',
+      vi: 'Dịch Vụ Nhà Ở',
+      zh: '住宅服务',
     },
     description: {
-      en: 'Smooth and professional plastering work ready for a high-quality finish.',
-      vi: 'Công việc bả tường mịn và chuyên nghiệp, sẵn sàng cho lớp hoàn thiện chất lượng cao.',
-      zh: '平整专业的抹灰施工，为高质量饰面做好准备。',
+      en: 'Professional painting and plastering services tailored for residential homes.',
+      vi: 'Dịch vụ sơn và bả chuyên nghiệp dành riêng cho nhà ở.',
+      zh: '为住宅提供专业的油漆和抹灰服务。',
+    },
+  },
+  {
+    id: 'commercial',
+    image: serviceImage4,
+    title: {
+      en: 'Commercial Services',
+      vi: 'Dịch Vụ Thương Mại',
+      zh: '商业服务',
+    },
+    description: {
+      en: 'Reliable services for offices, retail, and commercial properties.',
+      vi: 'Dịch vụ đáng tin cậy cho văn phòng và công trình thương mại.',
+      zh: '为办公室、零售空间和商业物业提供可靠服务。',
     },
   },
 ]
 
+// ================= GALLERY =================
 export const galleryContent: SectionIntroContent = {
   eyebrow: {
     en: 'Our Work',
@@ -146,8 +173,8 @@ export const galleryContent: SectionIntroContent = {
   },
   description: {
     en: 'Take a look at some of our recent painting and plastering work.',
-    vi: 'Xem qua một số công trình sơn và bả gần đây của chúng tôi.',
-    zh: '查看我们最近完成的一些油漆和抹灰项目。',
+    vi: 'Xem qua một số công trình gần đây của chúng tôi.',
+    zh: '查看我们最近完成的一些项目。',
   },
 }
 
@@ -170,9 +197,9 @@ export const galleryItems: GalleryItem[] = [
     id: 'gallery-2',
     image: galleryImage2,
     alt: {
-      en: 'Exterior house painting project',
-      vi: 'Công trình sơn ngoại thất nhà ở',
-      zh: '住宅外墙油漆项目',
+      en: 'Exterior painting project',
+      vi: 'Công trình sơn ngoại thất',
+      zh: '外墙油漆项目',
     },
     title: {
       en: 'Exterior Refresh',
@@ -184,18 +211,19 @@ export const galleryItems: GalleryItem[] = [
     id: 'gallery-3',
     image: galleryImage3,
     alt: {
-      en: 'Plastering and finishing project',
-      vi: 'Công trình bả và hoàn thiện',
-      zh: '抹灰与完工项目',
+      en: 'Plastering project',
+      vi: 'Công trình bả tường',
+      zh: '抹灰项目',
     },
     title: {
-      en: 'Smooth Plaster Finish',
-      vi: 'Bề Mặt Bả Mịn',
-      zh: '平整抹灰效果',
+      en: 'Smooth Finish',
+      vi: 'Bề Mặt Mịn',
+      zh: '平整效果',
     },
   },
 ]
 
+// ================= ABOUT =================
 export const aboutContent: AboutContent = {
   eyebrow: {
     en: 'Why Choose Us',
@@ -208,60 +236,62 @@ export const aboutContent: AboutContent = {
     zh: '可靠施工与清晰沟通',
   },
   description: {
-    en: 'We focus on quality finishes, dependable service, and a smooth experience from the first quote to the final result.',
-    vi: 'Chúng tôi tập trung vào chất lượng hoàn thiện, dịch vụ đáng tin cậy và trải nghiệm suôn sẻ từ báo giá đầu tiên đến kết quả cuối cùng.',
-    zh: '我们专注于高质量完工、可靠服务，以及从首次报价到最终成果的顺畅体验。',
+    en: 'We focus on quality finishes and dependable service.',
+    vi: 'Chúng tôi tập trung vào chất lượng và dịch vụ đáng tin cậy.',
+    zh: '我们专注于高质量施工与可靠服务。',
   },
   image: aboutImage,
   imageAlt: {
-    en: 'Painting and plastering team at work',
-    vi: 'Đội ngũ sơn và bả đang làm việc',
-    zh: '油漆和抹灰团队施工中',
+    en: 'Team at work',
+    vi: 'Đội ngũ đang làm việc',
+    zh: '施工团队',
   },
 }
 
+// ================= FEATURES =================
 export const aboutFeatures: FeatureItem[] = [
   {
     id: 'quality',
     text: {
-      en: 'Quality finishes for homes and commercial spaces',
-      vi: 'Hoàn thiện chất lượng cho nhà ở và không gian thương mại',
-      zh: '为住宅和商业空间提供高质量完工效果',
+      en: 'High-quality finishes',
+      vi: 'Hoàn thiện chất lượng cao',
+      zh: '高质量施工',
     },
   },
   {
     id: 'communication',
     text: {
-      en: 'Clear communication throughout the project',
-      vi: 'Giao tiếp rõ ràng trong suốt quá trình thực hiện',
-      zh: '项目全过程清晰沟通',
+      en: 'Clear communication',
+      vi: 'Giao tiếp rõ ràng',
+      zh: '沟通清晰',
     },
   },
   {
     id: 'reliable',
     text: {
-      en: 'Reliable service you can count on',
-      vi: 'Dịch vụ đáng tin cậy mà bạn có thể yên tâm',
-      zh: '值得信赖的服务',
+      en: 'Reliable service',
+      vi: 'Dịch vụ đáng tin cậy',
+      zh: '可靠服务',
     },
   },
 ]
 
+// ================= CONTACT =================
 export const contactSectionContent: ContactSectionContent = {
   eyebrow: {
     en: 'Get In Touch',
-    vi: 'Liên Hệ Với Chúng Tôi',
+    vi: 'Liên Hệ',
     zh: '联系我们',
   },
   title: {
-    en: 'Let’s talk about your next project',
-    vi: 'Hãy cùng trao đổi về dự án tiếp theo của bạn',
-    zh: '让我们聊聊您的下一个项目',
+    en: 'Let’s talk about your project',
+    vi: 'Hãy trao đổi về dự án của bạn',
+    zh: '让我们聊聊您的项目',
   },
   description: {
-    en: 'Contact us for painting and plastering services, quotes, or project enquiries.',
-    vi: 'Liên hệ với chúng tôi để được tư vấn dịch vụ sơn, bả, báo giá hoặc trao đổi về dự án.',
-    zh: '欢迎联系我们，咨询油漆、抹灰服务、报价或项目需求。',
+    en: 'Contact us for quotes or enquiries.',
+    vi: 'Liên hệ để được báo giá.',
+    zh: '欢迎联系我们获取报价。',
   },
   callLabel: {
     en: 'Call',

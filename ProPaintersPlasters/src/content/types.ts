@@ -22,6 +22,7 @@ export type ContactInfo = {
 
 export type ServiceItem = {
   id: string
+  image: string
   title: LocalizedText
   description: LocalizedText
 }
