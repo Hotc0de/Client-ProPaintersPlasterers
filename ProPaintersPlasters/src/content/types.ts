@@ -66,3 +66,9 @@ export type FooterContent = {
   copyright: LocalizedText
   navigationLabel: LocalizedText
 }
+
+export type NavigationItem = {
+  id: string
+  label: LocalizedText
+  href: string
+}

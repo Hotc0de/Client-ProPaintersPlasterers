@@ -1,5 +1,7 @@
+import { navigationItems } from '../../content/navigation'
 import { companyName } from '../../content/site'
 import type { Locale } from '../../content/types'
+import { getLocalizedValue } from '../../utils/getLocalizedValue'
 import './Header.css'
 
 type HeaderProps = {
@@ -18,9 +20,11 @@ export function Header({ locale, onChangeLanguage }: HeaderProps) {
         </div>
 
         <nav className="site-header__nav" aria-label="Main navigation">
-          <a href="#services">Services</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#contact">Contact</a>
+          {navigationItems.map((item) => (
+            <a key={item.id} href={item.href}>
+              {getLocalizedValue(item.label, locale)}
+            </a>
+          ))}
         </nav>
 
         <div className="site-header__languages">

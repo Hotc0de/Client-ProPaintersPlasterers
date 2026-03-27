@@ -1,3 +1,4 @@
+import { navigationItems } from '../../content/navigation'
 import { companyName, contactInfo, footerContent } from '../../content/site'
 import type { Locale } from '../../content/types'
 import { getLocalizedValue } from '../../utils/getLocalizedValue'
@@ -32,11 +33,11 @@ export function Footer({ locale }: FooterProps) {
           </h3>
 
           <nav className="site-footer__nav">
-            <a href="#top">Home</a>
-            <a href="#services">Services</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            {navigationItems.map((item) => (
+              <a key={item.id} href={item.href}>
+                {getLocalizedValue(item.label, locale)}
+              </a>
+            ))}
           </nav>
         </div>
       </div>
