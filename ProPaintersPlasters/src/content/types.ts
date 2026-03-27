@@ -61,3 +61,8 @@ export type ContactSectionContent = {
   addressLabel: LocalizedText
   buttonText: LocalizedText
 }
+
+export type FooterContent = {
+  copyright: LocalizedText
+  navigationLabel: LocalizedText
+}

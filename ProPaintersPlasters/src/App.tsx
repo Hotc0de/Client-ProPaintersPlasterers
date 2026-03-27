@@ -1,3 +1,4 @@
+import { Footer } from './components/layout/Footer'
 import { Header } from './components/layout/Header'
 import { About } from './sections/About/About'
 import { Contact } from './sections/Contact/Contact'
@@ -20,6 +21,8 @@ export default function App() {
         <About locale={locale} />
         <Contact locale={locale} />
       </main>
+
+      <Footer locale={locale} />
     </div>
   )
 }
