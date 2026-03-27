@@ -21,8 +21,12 @@ export function Services({ locale }: ServicesProps) {
         />
 
         <div className="services__grid">
-          {serviceItems.map((service) => (
+          {serviceItems.map((service, index) => (
             <article key={service.id} className="service-card">
+              <div className="service-card__badge">
+                {String(index + 1).padStart(2, '0')}
+              </div>
+
               <h3 className="service-card__title">
                 {getLocalizedValue(service.title, locale)}
               </h3>

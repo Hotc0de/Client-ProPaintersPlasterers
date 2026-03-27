@@ -3,7 +3,7 @@ import type { Locale } from '../../content/types'
 import { getLocalizedValue } from '../../utils/getLocalizedValue'
 import './Hero.css'
 
-import heroImage from '../../assets/images/hero.png'
+import heroImage from '../../assets/images/hero/hero.jpg'
 
 type HeroProps = {
   locale: Locale
