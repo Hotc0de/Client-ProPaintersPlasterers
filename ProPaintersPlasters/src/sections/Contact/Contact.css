@@ -1,6 +1,6 @@
 .contact {
   padding: var(--space-section) 20px;
-  background: linear-gradient(180deg, #f7f3ec 0%, #f1ece4 100%);
+  background: linear-gradient(180deg, #0b1628 0%, #091321 100%);
 }
 
 .contact__inner {
@@ -17,18 +17,18 @@
 
 .contact-card {
   padding: 30px 28px;
-  background: linear-gradient(180deg, #ffffff 0%, #faf7f1 100%);
-  border: 1px solid rgba(139, 107, 63, 0.2);
+  background: linear-gradient(180deg, rgba(19, 34, 56, 0.96) 0%, rgba(12, 24, 40, 0.98) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.16);
   border-radius: var(--radius-xl);
   text-align: center;
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-glow);
   transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
 }
 
 .contact-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.08);
-  border-color: rgba(139, 107, 63, 0.35);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.3);
+  border-color: rgba(212, 175, 55, 0.35);
 }
 
 .contact-card__label {
@@ -41,7 +41,7 @@
 }
 
 .contact-card__value {
-  color: var(--color-dark);
+  color: var(--color-text);
   font-size: 18px;
   font-weight: 700;
   text-decoration: none;
@@ -54,24 +54,6 @@
   justify-content: center;
 }
 
-.contact__button {
-  display: inline-block;
-  padding: 16px 28px;
-  border-radius: var(--radius-md);
-  background: linear-gradient(180deg, #111111 0%, #232323 100%);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-  letter-spacing: 0.2px;
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
-}
-
-.contact__button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.16);
-}
-
 @media (max-width: 900px) {
   .contact {
     padding: var(--space-section-mobile) 20px;
@@ -79,5 +61,24 @@
 
   .contact__grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact {
+    padding: 56px 16px;
+  }
+
+  .contact__grid {
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+
+  .contact-card {
+    padding: 22px 18px;
+  }
+
+  .contact-card__value {
+    font-size: 16px;
   }
 }

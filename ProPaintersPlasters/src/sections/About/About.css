@@ -1,6 +1,6 @@
 .about {
   padding: var(--space-section) 20px;
-  background: var(--color-surface);
+  background: linear-gradient(180deg, #091321 0%, #0b1628 100%);
 }
 
 .about__inner {
@@ -20,7 +20,7 @@
   content: '';
   position: absolute;
   inset: 18px -18px -18px 18px;
-  background: rgba(139, 107, 63, 0.12);
+  background: rgba(212, 175, 55, 0.08);
   border-radius: 26px;
   z-index: 0;
 }
@@ -34,7 +34,7 @@
   object-fit: cover;
   display: block;
   border-radius: 26px;
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-glow);
 }
 
 .about__eyebrow {
@@ -50,7 +50,7 @@
   margin-bottom: 20px;
   font-size: 42px;
   line-height: 1.15;
-  color: var(--color-dark);
+  color: var(--color-text);
 }
 
 .about__description {
@@ -74,16 +74,16 @@
   font-size: 16px;
   line-height: 1.7;
   color: var(--color-text);
-  border: 1px solid rgba(139, 107, 63, 0.25);
+  border: 1px solid rgba(212, 175, 55, 0.16);
   border-radius: var(--radius-lg);
-  background: linear-gradient(180deg, #ffffff 0%, #f5f1ea 100%);
-  box-shadow: var(--shadow-soft);
+  background: linear-gradient(180deg, rgba(19, 34, 56, 0.96) 0%, rgba(12, 24, 40, 0.98) 100%);
+  box-shadow: var(--shadow-glow);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .about__feature-item:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
 }
 
 .about__feature-item::before {
@@ -124,5 +124,25 @@
 
   .about__image-column::before {
     display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .about {
+    padding: 56px 16px;
+  }
+
+  .about__title {
+    font-size: 30px;
+  }
+
+  .about__feature-item {
+    padding: 14px 16px 14px 42px;
+    font-size: 15px;
+  }
+
+  .about__feature-item::before {
+    left: 16px;
+    top: 14px;
   }
 }
