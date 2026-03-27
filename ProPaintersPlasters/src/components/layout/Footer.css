@@ -104,24 +104,3 @@
     gap: 30px;
   }
 }
-
-@media (max-width: 600px) {
-  .site-footer {
-    padding: 56px 16px 24px;
-  }
-
-  .site-footer__company {
-    font-size: 18px;
-  }
-
-  .site-footer__text,
-  .site-footer__link,
-  .site-footer__nav a {
-    font-size: 14px;
-  }
-
-  .site-footer__bottom {
-    margin-top: 32px;
-    font-size: 12px;
-  }
-}
