@@ -11,13 +11,13 @@
 .gallery__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 28px;
 }
 
 .gallery-card {
   width: 100%;
   overflow: hidden;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-soft);
@@ -42,15 +42,15 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.1) 0%,
-    rgba(0, 0, 0, 0.55) 100%
+    rgba(0, 0, 0, 0.08) 0%,
+    rgba(0, 0, 0, 0.58) 100%
   );
   display: flex;
   align-items: end;
   justify-content: flex-start;
   opacity: 0;
   transition: opacity 0.3s ease;
-  padding: 22px;
+  padding: 24px;
 }
 
 .gallery-card__title {

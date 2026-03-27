@@ -13,9 +13,12 @@
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 20px;
+  --radius-xl: 28px;
 
   --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.06);
 
-  --space-section: 96px;
+  --space-section: 110px;
   --space-section-mobile: 72px;
+  --space-content: 24px;
+  --space-content-lg: 40px;
 }

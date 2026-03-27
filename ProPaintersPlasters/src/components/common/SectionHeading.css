@@ -1,5 +1,5 @@
 .section-heading {
-  margin-bottom: 40px;
+  margin-bottom: 52px;
 }
 
 .section-heading--left {
@@ -20,16 +20,16 @@
 }
 
 .section-heading__title {
-  margin-bottom: 16px;
-  font-size: 36px;
-  line-height: 1.2;
+  margin-bottom: 18px;
+  font-size: 40px;
+  line-height: 1.15;
   color: var(--color-dark);
 }
 
 .section-heading__description {
-  max-width: 700px;
+  max-width: 720px;
   font-size: 18px;
-  line-height: 1.7;
+  line-height: 1.75;
   color: var(--color-text-muted);
 }
 
@@ -39,8 +39,12 @@
 }
 
 @media (max-width: 768px) {
+  .section-heading {
+    margin-bottom: 38px;
+  }
+
   .section-heading__title {
-    font-size: 30px;
+    font-size: 32px;
   }
 
   .section-heading__description {

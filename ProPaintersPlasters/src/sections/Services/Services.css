@@ -11,13 +11,13 @@
 .services__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 28px;
 }
 
 .service-card {
-  padding: 28px;
+  padding: 30px;
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   background: linear-gradient(180deg, #ffffff 0%, #faf8f4 100%);
   box-shadow: var(--shadow-soft);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -29,14 +29,14 @@
 }
 
 .service-card__title {
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   font-size: 22px;
   color: var(--color-dark);
 }
 
 .service-card__description {
   font-size: 16px;
-  line-height: 1.7;
+  line-height: 1.75;
   color: var(--color-text-muted);
 }
 
