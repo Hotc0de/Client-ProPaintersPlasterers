@@ -1,53 +1,86 @@
-.section-heading {
-  margin-bottom: 52px;
+.hero {
+  padding: calc(var(--space-section) + 10px) 20px var(--space-section);
+  background: linear-gradient(180deg, #f7f4ef 0%, #f2eee8 100%);
 }
 
-.section-heading--left {
-  text-align: left;
+.hero__content {
+  max-width: 940px;
+  margin: 0 auto;
 }
 
-.section-heading--center {
-  text-align: center;
-}
-
-.section-heading__eyebrow {
-  margin-bottom: 12px;
+.hero__eyebrow {
+  margin-bottom: 14px;
   font-size: 14px;
   font-weight: 700;
-  text-transform: uppercase;
   letter-spacing: 1.2px;
+  text-transform: uppercase;
   color: var(--color-accent);
 }
 
-.section-heading__title {
-  margin-bottom: 18px;
-  font-size: 40px;
-  line-height: 1.15;
+.hero__title {
+  margin-bottom: 22px;
+  font-size: 58px;
+  line-height: 1.04;
   color: var(--color-dark);
 }
 
-.section-heading__description {
-  max-width: 720px;
-  font-size: 18px;
+.hero__description {
+  max-width: 760px;
+  margin-bottom: 32px;
+  font-size: 19px;
   line-height: 1.75;
   color: var(--color-text-muted);
 }
 
-.section-heading--center .section-heading__description {
-  margin-left: auto;
-  margin-right: auto;
+.hero__actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero__button {
+  display: inline-block;
+  padding: 14px 24px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.hero__button:hover {
+  transform: translateY(-2px);
+}
+
+.hero__button--primary {
+  background: var(--color-dark);
+  color: #fff;
+  box-shadow: var(--shadow-soft);
+}
+
+.hero__button--primary:hover {
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+}
+
+.hero__button--secondary {
+  border: 1px solid var(--color-dark);
+  color: var(--color-dark);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.hero__button--secondary:hover {
+  background: #fff;
 }
 
 @media (max-width: 768px) {
-  .section-heading {
-    margin-bottom: 38px;
+  .hero {
+    padding: calc(var(--space-section-mobile) + 10px) 20px var(--space-section-mobile);
   }
 
-  .section-heading__title {
-    font-size: 32px;
+  .hero__title {
+    font-size: 38px;
   }
 
-  .section-heading__description {
+  .hero__description {
     font-size: 16px;
   }
 }
