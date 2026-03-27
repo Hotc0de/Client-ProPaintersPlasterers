@@ -126,3 +126,23 @@
     display: none;
   }
 }
+
+@media (max-width: 600px) {
+  .about {
+    padding: 56px 16px;
+  }
+
+  .about__title {
+    font-size: 30px;
+  }
+
+  .about__feature-item {
+    padding: 14px 16px 14px 42px;
+    font-size: 15px;
+  }
+
+  .about__feature-item::before {
+    left: 16px;
+    top: 14px;
+  }
+}
