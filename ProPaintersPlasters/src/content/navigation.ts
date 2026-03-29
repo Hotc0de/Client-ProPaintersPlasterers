@@ -37,6 +37,15 @@ export const navigationItems: NavigationItem[] = [
 },
   href: '#why-choose-us',
   },
+    {
+    id: 'about-us',
+    label: {
+      en: 'About Us',
+      vi: 'Về Chúng Tôi',
+      zh: '关于我们',
+    },
+    href: '#about-us',
+  },
   {
     id: 'contact',
     label: {

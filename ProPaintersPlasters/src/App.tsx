@@ -1,5 +1,6 @@
 import { Footer } from './components/layout/Footer'
 import { Header } from './components/layout/Header'
+import { AboutUs } from './sections/AboutUs/AboutUs'
 import { WhyChooseUs } from './sections/WhyChooseUs/WhyChooseUs'
 import { Contact } from './sections/Contact/Contact'
 import { Gallery } from './sections/Gallery/Gallery'
@@ -19,6 +20,7 @@ export default function App() {
         <Services locale={locale} />
         <Gallery locale={locale} />
         <WhyChooseUs locale={locale} />
+        <AboutUs locale={locale} />
         <Contact locale={locale} />
       </main>
 
