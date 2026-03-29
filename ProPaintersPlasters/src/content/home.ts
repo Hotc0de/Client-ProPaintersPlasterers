@@ -297,13 +297,13 @@ export const contactSectionContent: ContactSectionContent = {
     zh: '让我们聊聊您的项目',
   },
   description: {
-    en: 'Contact us for quotes or enquiries.',
-    vi: 'Liên hệ để được báo giá.',
-    zh: '欢迎联系我们获取报价。',
+    en: 'Tell us what you need and we will get back with clear advice and a tailored quote.',
+    vi: 'Hãy cho chúng tôi biết nhu cầu của bạn, chúng tôi sẽ phản hồi với tư vấn rõ ràng và báo giá phù hợp.',
+    zh: '告诉我们您的需求，我们将以清晰建议和定制报价尽快回复您。',
   },
   callLabel: {
-    en: 'Call',
-    vi: 'Điện thoại',
+    en: 'Phone',
+    vi: 'Điện Thoại',
     zh: '电话',
   },
   emailLabel: {
@@ -312,13 +312,137 @@ export const contactSectionContent: ContactSectionContent = {
     zh: '邮箱',
   },
   addressLabel: {
-    en: 'Location',
+    en: 'Address',
     vi: 'Địa chỉ',
     zh: '地址',
   },
-  buttonText: {
-    en: 'Request a Quote',
-    vi: 'Yêu Cầu Báo Giá',
-    zh: '获取报价',
+  hoursLabel: {
+    en: 'Business Hours',
+    vi: 'Giờ Làm Việc',
+    zh: '营业时间',
   },
+  hoursValue: {
+    en: 'Mon - Sat, 8:00 AM - 6:00 PM',
+    vi: 'Thứ 2 - Thứ 7, 8:00 - 18:00',
+    zh: '周一至周六，8:00 - 18:00',
+  },
+  formTitle: {
+    en: 'Send Us a Message',
+    vi: 'Gửi Tin Nhắn Cho Chúng Tôi',
+    zh: '给我们留言',
+  },
+  fullNameLabel: {
+    en: 'Full Name',
+    vi: 'Họ và Tên',
+    zh: '姓名',
+  },
+  fullNamePlaceholder: {
+    en: 'Enter your full name',
+    vi: 'Nhập họ và tên của bạn',
+    zh: '请输入您的姓名',
+  },
+  emailInputLabel: {
+    en: 'Email Address',
+    vi: 'Địa Chỉ Email',
+    zh: '邮箱地址',
+  },
+  emailPlaceholder: {
+    en: 'Enter your email address',
+    vi: 'Nhập địa chỉ email của bạn',
+    zh: '请输入您的邮箱地址',
+  },
+  phoneInputLabel: {
+    en: 'Phone Number',
+    vi: 'Số Điện Thoại',
+    zh: '电话号码',
+  },
+  phonePlaceholder: {
+    en: 'Enter your phone number',
+    vi: 'Nhập số điện thoại của bạn',
+    zh: '请输入您的电话号码',
+  },
+  serviceLabel: {
+    en: 'Service Interested In',
+    vi: 'Dịch Vụ Quan Tâm',
+    zh: '感兴趣的服务',
+  },
+  servicePlaceholder: {
+    en: 'Select a service',
+    vi: 'Chọn một dịch vụ',
+    zh: '请选择服务',
+  },
+  messageLabel: {
+    en: 'Your Message',
+    vi: 'Nội Dung Tin Nhắn',
+    zh: '留言内容',
+  },
+  messagePlaceholder: {
+    en: 'Tell us about your project requirements',
+    vi: 'Hãy chia sẻ yêu cầu dự án của bạn',
+    zh: '请告诉我们您的项目需求',
+  },
+  submitButtonText: {
+    en: 'Send Message',
+    vi: 'Gửi Tin Nhắn',
+    zh: '发送留言',
+  },
+  validationNameRequired: {
+    en: 'Please enter your full name.',
+    vi: 'Vui lòng nhập họ và tên.',
+    zh: '请输入您的姓名。',
+  },
+  validationEmailRequired: {
+    en: 'Please enter your email address.',
+    vi: 'Vui lòng nhập địa chỉ email.',
+    zh: '请输入您的邮箱地址。',
+  },
+  validationEmailInvalid: {
+    en: 'Please enter a valid email address.',
+    vi: 'Vui lòng nhập email hợp lệ.',
+    zh: '请输入有效的邮箱地址。',
+  },
+  validationMessageRequired: {
+    en: 'Please enter your message.',
+    vi: 'Vui lòng nhập nội dung tin nhắn.',
+    zh: '请输入留言内容。',
+  },
+  successMessage: {
+    en: 'Thanks for reaching out. We will contact you soon.',
+    vi: 'Cảm ơn bạn đã liên hệ. Chúng tôi sẽ phản hồi sớm.',
+    zh: '感谢您的联系，我们会尽快回复您。',
+  },
+  serviceOptions: [
+    {
+      value: 'interior-painting',
+      label: {
+        en: 'Interior Painting',
+        vi: 'Sơn Nội Thất',
+        zh: '室内油漆',
+      },
+    },
+    {
+      value: 'exterior-painting',
+      label: {
+        en: 'Exterior Painting',
+        vi: 'Sơn Ngoại Thất',
+        zh: '室外油漆',
+      },
+    },
+    {
+      value: 'private-services',
+      label: {
+        en: 'Private Services',
+        vi: 'Dịch Vụ Nhà Ở',
+        zh: '住宅服务',
+      },
+    },
+    {
+      value: 'commercial',
+      label: {
+        en: 'Commercial Services',
+        vi: 'Dịch Vụ Thương Mại',
+        zh: '商业服务',
+      },
+    },
+  ],
 }

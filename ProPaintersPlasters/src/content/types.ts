@@ -60,7 +60,29 @@ export type ContactSectionContent = {
   callLabel: LocalizedText
   emailLabel: LocalizedText
   addressLabel: LocalizedText
-  buttonText: LocalizedText
+  hoursLabel: LocalizedText
+  hoursValue: LocalizedText
+  formTitle: LocalizedText
+  fullNameLabel: LocalizedText
+  fullNamePlaceholder: LocalizedText
+  emailInputLabel: LocalizedText
+  emailPlaceholder: LocalizedText
+  phoneInputLabel: LocalizedText
+  phonePlaceholder: LocalizedText
+  serviceLabel: LocalizedText
+  servicePlaceholder: LocalizedText
+  messageLabel: LocalizedText
+  messagePlaceholder: LocalizedText
+  submitButtonText: LocalizedText
+  validationNameRequired: LocalizedText
+  validationEmailRequired: LocalizedText
+  validationEmailInvalid: LocalizedText
+  validationMessageRequired: LocalizedText
+  successMessage: LocalizedText
+  serviceOptions: Array<{
+    value: string
+    label: LocalizedText
+  }>
 }
 
 export type FooterContent = {
