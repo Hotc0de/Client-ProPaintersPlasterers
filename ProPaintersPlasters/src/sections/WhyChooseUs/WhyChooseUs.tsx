@@ -1,15 +1,15 @@
 import type { Locale } from '../../content/types'
-import { aboutContent, aboutFeatures } from '../../content/home'
+import { whyChooseUsContent, whyChooseUsFeatures } from '../../content/home'
 import { getLocalizedValue } from '../../utils/getLocalizedValue'
-import './About.css'
+import './WhyChooseUs.css'
 
-type AboutProps = {
+type WhyChooseUsProps = {
   locale: Locale
 }
 
-export function About({ locale }: AboutProps) {
+export function WhyChooseUs({ locale }: WhyChooseUsProps) {
   return (
-    <section id="about" className="about">
+    <section id="why-choose-us" className="WhyChooseUs">
       <div className="about__glow about__glow--left" />
       <div className="about__glow about__glow--right" />
 
@@ -17,8 +17,8 @@ export function About({ locale }: AboutProps) {
         <div className="about__media">
           <div className="about__image-frame">
             <img
-              src={aboutContent.image}
-              alt={getLocalizedValue(aboutContent.imageAlt, locale)}
+              src={whyChooseUsContent.image}
+              alt={getLocalizedValue(whyChooseUsContent.imageAlt, locale)}
               className="about__image"
             />
             <div className="about__image-overlay" />
@@ -38,23 +38,21 @@ export function About({ locale }: AboutProps) {
 
         <div className="about__content">
           <p className="about__eyebrow">
-            {getLocalizedValue(aboutContent.eyebrow, locale)}
+            {getLocalizedValue(whyChooseUsContent.eyebrow, locale)}
           </p>
 
           <h2 className="about__title">
-            {getLocalizedValue(aboutContent.title, locale)}
+            {getLocalizedValue(whyChooseUsContent.title, locale)}
           </h2>
 
           <p className="about__description">
-            {getLocalizedValue(aboutContent.description, locale)}
+            {getLocalizedValue(whyChooseUsContent.description, locale)}
           </p>
 
           <div className="about__features">
-            {aboutFeatures.map((feature) => (
+            {whyChooseUsFeatures.map((feature) => (
               <div key={feature.id} className="about__feature">
-                <span className="about__feature-icon" aria-hidden="true">
-                  ✓
-                </span>
+                <span className="about__feature-icon">✓</span>
                 <span className="about__feature-text">
                   {getLocalizedValue(feature.text, locale)}
                 </span>
@@ -82,6 +80,23 @@ export function About({ locale }: AboutProps) {
                   : locale === 'zh'
                     ? '已完成项目'
                     : 'Projects completed'}
+              </p>
+            </div>
+
+            <div className="about__stat">
+              <p className="about__stat-value">
+                {locale === 'vi'
+                  ? 'Nhà ở & Thương mại'
+                  : locale === 'zh'
+                    ? '住宅与商业'
+                    : 'Residential & Commercial'}
+              </p>
+              <p className="about__stat-label">
+                {locale === 'vi'
+                  ? 'Dự án mọi quy mô'
+                  : locale === 'zh'
+                    ? '各类规模项目'
+                    : 'Projects of all sizes'}
               </p>
             </div>
           </div>

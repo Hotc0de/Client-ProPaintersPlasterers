@@ -9,7 +9,6 @@ import galleryImage3 from '../assets/images/gallery/gallery-3.jpg'
 import aboutImage from '../assets/images/about/about-main.jpeg'
 
 import type {
-  AboutContent,
   ContactSectionContent,
   FeatureItem,
   GalleryItem,
@@ -17,6 +16,7 @@ import type {
   SectionIntroContent,
   ServiceItem,
   StatItem,
+  WhyChooseUsContent,
 } from './types'
 
 
@@ -53,7 +53,7 @@ export const heroContent: HeroContent = {
 export const heroStats: StatItem[] = [
   {
     id: 'projects',
-    value: '200+',
+    value: '1000+',
     label: {
       en: 'Completed projects',
       vi: 'Dự án đã hoàn thành',
@@ -224,21 +224,21 @@ export const galleryItems: GalleryItem[] = [
 ]
 
 // ================= ABOUT =================
-export const aboutContent: AboutContent = {
+export const whyChooseUsContent: WhyChooseUsContent = {
   eyebrow: {
     en: 'Why Choose Us',
     vi: 'Tại Sao Chọn Chúng Tôi',
     zh: '为什么选择我们',
   },
   title: {
-    en: 'Reliable workmanship with clear communication',
-    vi: 'Tay nghề đáng tin cậy cùng giao tiếp rõ ràng',
-    zh: '可靠施工与清晰沟通',
+    en: 'Delivering quality finishes with service you can trust',
+    vi: 'Mang đến chất lượng hoàn thiện cao cùng dịch vụ mà bạn có thể tin tưởng',
+    zh: '提供值得信赖的服务与高质量完工效果',
   },
   description: {
-    en: 'We focus on quality finishes and dependable service.',
-    vi: 'Chúng tôi tập trung vào chất lượng và dịch vụ đáng tin cậy.',
-    zh: '我们专注于高质量施工与可靠服务。',
+    en: 'We take pride in delivering high-quality painting and plastering with clear communication, reliable service, and no surprises along the way.',
+    vi: 'Chúng tôi tự hào mang đến dịch vụ sơn và bả chất lượng cao với giao tiếp rõ ràng, dịch vụ đáng tin cậy và không phát sinh bất ngờ trong suốt quá trình.',
+    zh: '我们以高质量的油漆和抹灰施工为荣，并提供清晰沟通、可靠服务以及无意外收费的体验。',
   },
   image: aboutImage,
   imageAlt: {
@@ -249,21 +249,13 @@ export const aboutContent: AboutContent = {
 }
 
 // ================= FEATURES =================
-export const aboutFeatures: FeatureItem[] = [
+export const whyChooseUsFeatures: FeatureItem[] = [
   {
     id: 'quality',
     text: {
       en: 'High-quality finishes',
       vi: 'Hoàn thiện chất lượng cao',
       zh: '高质量施工',
-    },
-  },
-  {
-    id: 'communication',
-    text: {
-      en: 'Clear communication',
-      vi: 'Giao tiếp rõ ràng',
-      zh: '沟通清晰',
     },
   },
   {
@@ -274,6 +266,22 @@ export const aboutFeatures: FeatureItem[] = [
       zh: '可靠服务',
     },
   },
+  {
+  id: 'pricing',
+  text: {
+    en: 'Transparent pricing with no surprises',
+    vi: 'Giá cả minh bạch, không phát sinh chi phí',
+    zh: '价格透明，无额外费用',
+  },
+  },
+  {
+  id: 'residential-commercial',
+  text: {
+    en: 'Trusted for both residential and commercial projects',
+    vi: 'Được tin tưởng cho cả dự án nhà ở và thương mại',
+    zh: '值得信赖的住宅和商业项目服务',
+  },
+},
 ]
 
 // ================= CONTACT =================

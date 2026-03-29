@@ -29,13 +29,13 @@ export const navigationItems: NavigationItem[] = [
     href: '#gallery',
   },
   {
-    id: 'about',
-    label: {
-      en: 'About',
-      vi: 'Giới Thiệu',
-      zh: '关于我们',
-    },
-    href: '#about',
+  id: 'why-choose-us',
+  label: {
+    en: 'Why Choose Us',
+    vi: 'Tại Sao Chọn Chúng Tôi',
+    zh: '为什么选择我们',
+},
+  href: '#why-choose-us',
   },
   {
     id: 'contact',

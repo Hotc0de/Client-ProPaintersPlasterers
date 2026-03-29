@@ -219,6 +219,24 @@
   color: #f2c94c;
 }
 
+.about__stat-value {
+  margin: 0 0 8px;
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: 700;
+  color: #f2c94c;
+}
+
+.about__stat:first-child .about__stat-value,
+.about__stat:nth-child(2) .about__stat-value {
+  white-space: nowrap;
+}
+
+.about__stat:nth-child(3) .about__stat-value {
+  font-size: 1.15rem;
+  line-height: 1.35;
+}
+
 .about__stat-label {
   margin: 0;
   color: rgba(228, 234, 243, 0.74);

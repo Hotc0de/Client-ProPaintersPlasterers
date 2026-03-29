@@ -39,7 +39,7 @@ export type FeatureItem = {
   text: LocalizedText
 }
 
-export type AboutContent = {
+export type WhyChooseUsContent = {
   eyebrow: LocalizedText
   title: LocalizedText
   description: LocalizedText

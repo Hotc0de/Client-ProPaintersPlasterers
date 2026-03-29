@@ -1,6 +1,14 @@
+import { navigationItems } from '../../content/navigation'
+import { companyName, contactInfo, footerContent } from '../../content/site'
+import type { Locale } from '../../content/types'
+import { getLocalizedValue } from '../../utils/getLocalizedValue'
 import './Footer.css'
 
-export function Footer() {
+type FooterProps = {
+  locale: Locale
+}
+
+export function Footer({ locale }: FooterProps) {
   return (
     <footer className="site-footer">
       <div className="site-footer__inner">
@@ -8,37 +16,37 @@ export function Footer() {
         {/* LEFT - BRAND */}
         <div className="site-footer__brand">
           <h2 className="site-footer__company">
-            Pro Painters & Plasters
+            {companyName}
           </h2>
 
           <p className="site-footer__text">
-            Christchurch, New Zealand
+            {getLocalizedValue(contactInfo.address, locale)}
           </p>
 
           <p className="site-footer__text">
-            +64 21 000 0000
+            {contactInfo.phone}
           </p>
 
           <a
-            href="mailto:hello@propainters.co.nz"
+            href={`mailto:${contactInfo.email}`}
             className="site-footer__link"
           >
-            hello@propainters.co.nz
+            {contactInfo.email}
           </a>
         </div>
 
         {/* RIGHT - NAV */}
         <div className="site-footer__nav-block">
           <h3 className="site-footer__heading">
-            Quick Links
+            {getLocalizedValue(footerContent.navigationLabel, locale)}
           </h3>
 
           <nav className="site-footer__nav">
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            {navigationItems.map((item) => (
+              <a key={item.id} href={item.href}>
+                {getLocalizedValue(item.label, locale)}
+              </a>
+            ))}
           </nav>
         </div>
 
@@ -46,7 +54,7 @@ export function Footer() {
 
       {/* BOTTOM */}
       <div className="site-footer__bottom">
-        © {new Date().getFullYear()} Pro Painters & Plasters. All rights reserved.
+        © {new Date().getFullYear()} {companyName}. {getLocalizedValue(footerContent.copyright, locale)}
       </div>
     </footer>
   )
