@@ -28,7 +28,7 @@ export const heroContent: HeroContent = {
     zh: '值得信赖的本地团队',
   },
   title: {
-    en: 'Professional painting and plastering for homes and businesses',
+    en: 'Professional Painting and Plastering Services',
     vi: 'Dịch vụ sơn và bả chuyên nghiệp cho nhà ở và doanh nghiệp',
     zh: '为住宅和商业提供专业油漆和抹灰服务',
   },

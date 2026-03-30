@@ -84,6 +84,9 @@
 .hero__title {
   margin: 0 0 24px;
   max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.12em;
   font-size: clamp(48px, 7vw, 84px);
   line-height: 1.02;
   letter-spacing: -1.8px;
@@ -91,32 +94,31 @@
   text-wrap: balance;
 }
 
-.hero__title-token {
-  display: inline-block;
-  margin-right: 0.28em;
+.hero__title-line {
+  display: block;
   will-change: transform, opacity;
 }
 
-.hero__highlight {
-  display: inline;
+.hero__title-line--accent {
   color: #d4af37;
   text-shadow: 0 0 30px rgba(212, 175, 55, 0.24);
+  white-space: nowrap;
 }
 
-.hero__highlight .hero__title-token {
-  position: relative;
-}
-
-.hero__highlight .hero__title-token::after {
+.hero__title-line--accent::after {
   content: '';
   position: absolute;
   left: 0;
-  right: 0;
+  width: min(100%, 9.2em);
   bottom: 0.08em;
-  height: 0.12em;
+  height: 0.1em;
   background: linear-gradient(90deg, rgba(212, 175, 55, 0.65) 0%, transparent 100%);
   opacity: 0.55;
   pointer-events: none;
+}
+
+.hero__title-line--accent {
+  position: relative;
 }
 
 .hero__description {
@@ -309,10 +311,6 @@
   .hero__description {
     margin-bottom: 28px;
     font-size: 17px;
-  }
-
-  .hero__title-token {
-    margin-right: 0.22em;
   }
 
   .hero__actions {

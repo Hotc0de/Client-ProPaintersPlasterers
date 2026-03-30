@@ -18,78 +18,62 @@ type HeroProps = {
   locale: Locale
 }
 
-type TitleSection = {
-  text: string
-  highlighted?: boolean
-}
-
-const titleHighlights: Record<Locale, string> = {
-  en: 'painting and plastering',
-  vi: 'sơn và bả',
-  zh: '油漆和抹灰',
-}
-
-function buildTitleSections(title: string, locale: Locale): TitleSection[] {
-  const highlight = titleHighlights[locale]
-  const lowerTitle = title.toLocaleLowerCase(locale)
-  const lowerHighlight = highlight.toLocaleLowerCase(locale)
-  const highlightIndex = lowerTitle.indexOf(lowerHighlight)
-
-  if (highlightIndex === -1) {
-    return [{ text: title }]
+function getTitleLines(locale: Locale, title: string) {
+  if (locale === 'en') {
+    return ['Professional', 'Painting and Plastering', 'Services']
   }
 
-  const before = title.slice(0, highlightIndex).trim()
-  const matched = title.slice(highlightIndex, highlightIndex + highlight.length)
-  const after = title.slice(highlightIndex + highlight.length).trim()
+  const words = title.split(/\s+/).filter(Boolean)
+  if (words.length < 3) {
+    return [title]
+  }
+
+  const firstBreak = Math.ceil(words.length / 3)
+  const secondBreak = Math.ceil((words.length * 2) / 3)
 
   return [
-    before ? { text: before } : null,
-    { text: matched, highlighted: true },
-    after ? { text: after } : null,
-  ].filter((section): section is TitleSection => section !== null)
-}
-
-function splitAnimatedTokens(text: string) {
-  if (/\s/u.test(text)) {
-    return text.split(/\s+/).filter(Boolean)
-  }
-
-  return [text]
+    words.slice(0, firstBreak).join(' '),
+    words.slice(firstBreak, secondBreak).join(' '),
+    words.slice(secondBreak).join(' '),
+  ].filter(Boolean)
 }
 
 export function Hero({ locale }: HeroProps) {
   const reduceMotion = useReducedMotion()
   const parallaxStyle = useSubtleParallax(24)
   const localizedTitle = getLocalizedValue(heroContent.title, locale)
-  const titleSections = buildTitleSections(localizedTitle, locale)
+  const titleLines = getTitleLines(locale, localizedTitle)
 
-  const titleContainerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: reduceMotion ? 0 : 0.08,
-        delayChildren: reduceMotion ? 0 : 0.42,
-      },
-    },
-  }
-
-  const titleWordVariants = {
-    hidden: reduceMotion
-      ? { opacity: 1, y: 0, scale: 1 }
-      : { opacity: 0, y: 50, scale: 0.5 },
+  const titleTopDownVariants = {
+    hidden: reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -34 },
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
       transition: reduceMotion
         ? { duration: 0 }
-        : {
-            type: 'spring' as const,
-            damping: 10,
-            stiffness: 100,
-            duration: 0.8,
-          },
+        : { duration: 1.15, ease: luxuryEase, delay: 0.4 },
+    },
+  }
+
+  const titleBottomUpVariants = {
+    hidden: reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 34 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: reduceMotion
+        ? { duration: 0 }
+        : { duration: 1.15, ease: luxuryEase, delay: 0.65 },
+    },
+  }
+
+  const titleRightToLeftVariants = {
+    hidden: reduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: 52 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: reduceMotion
+        ? { duration: 0 }
+        : { duration: 2, ease: luxuryEase, delay: 0.56 },
     },
   }
 
@@ -120,26 +104,28 @@ export function Hero({ locale }: HeroProps) {
 
           <motion.h1
             className="hero__title"
-            variants={titleContainerVariants}
             initial={reduceMotion ? false : 'hidden'}
             animate="visible"
           >
-            {titleSections.map((section, sectionIndex) => (
-              <span
-                key={`${section.text}-${sectionIndex}`}
-                className={section.highlighted ? 'hero__highlight' : undefined}
+            <motion.span className="hero__title-line" variants={titleTopDownVariants}>
+              {titleLines[0]}
+            </motion.span>
+            {titleLines[1] && (
+              <motion.span
+                className="hero__title-line hero__title-line--accent"
+                variants={titleRightToLeftVariants}
               >
-                {splitAnimatedTokens(section.text).map((token, tokenIndex) => (
-                  <motion.span
-                    key={`${sectionIndex}-${token}-${tokenIndex}`}
-                    className="hero__title-token"
-                    variants={titleWordVariants}
-                  >
-                    {token}
-                  </motion.span>
-                ))}
-              </span>
-            ))}
+                {titleLines[1]}
+              </motion.span>
+            )}
+            {titleLines[2] && (
+              <motion.span
+                className="hero__title-line"
+                variants={titleBottomUpVariants}
+              >
+                {titleLines[2]}
+              </motion.span>
+            )}
           </motion.h1>
 
           <motion.p className="hero__description" variants={fadeUp(0.06)}>
