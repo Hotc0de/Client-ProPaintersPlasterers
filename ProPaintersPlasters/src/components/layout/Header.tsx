@@ -1,7 +1,10 @@
+import { useEffect, useState } from 'react'
 import { navigationItems } from '../../content/navigation'
 import { companyName } from '../../content/site'
 import type { Locale } from '../../content/types'
 import { getLocalizedValue } from '../../utils/getLocalizedValue'
+import { motion, useReducedMotion } from 'framer-motion'
+import { durations, luxuryEase } from '../../utils/motion'
 import './Header.css'
 
 type HeaderProps = {
@@ -20,28 +23,64 @@ const languageOptions: Array<{
 ]
 
 export function Header({ locale, onChangeLanguage }: HeaderProps) {
+  const [isCompact, setIsCompact] = useState(false)
+  const reduceMotion = useReducedMotion()
+
+  useEffect(() => {
+    const onScroll = () => {
+      setIsCompact(window.scrollY > 18)
+    }
+
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+    }
+  }, [])
+
   const activeLanguage =
     languageOptions.find((item) => item.value === locale) ?? languageOptions[0]
 
   return (
-    <header className="site-header">
+    <motion.header
+      className={`site-header ${isCompact ? 'site-header--compact' : ''}`}
+      initial={reduceMotion ? false : { opacity: 0, y: -22 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: durations.base, ease: luxuryEase }}
+    >
       <div className="site-header__inner">
-        <div className="site-header__brand">
+        <motion.div
+          className="site-header__brand"
+          initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: durations.base, delay: 0.02, ease: luxuryEase }}
+        >
           <a href="#top" className="site-header__logo">
             <span className="site-header__logo-mark">🎨</span>
             <span className="site-header__logo-text">{companyName}</span>
           </a>
-        </div>
+        </motion.div>
 
         <nav className="site-header__nav" aria-label="Primary navigation">
           {navigationItems.map((item) => (
-            <a key={item.id} href={item.href}>
+            <motion.a
+              key={item.id}
+              href={item.href}
+              whileHover={reduceMotion ? undefined : { y: -1 }}
+              transition={{ duration: durations.fast, ease: luxuryEase }}
+            >
               {getLocalizedValue(item.label, locale)}
-            </a>
+            </motion.a>
           ))}
         </nav>
 
-        <div className="site-header__language">
+        <motion.div
+          className="site-header__language"
+          initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: durations.base, delay: 0.1, ease: luxuryEase }}
+        >
           <label className="site-header__language-label" htmlFor="language-select">
             Language
           </label>
@@ -72,8 +111,8 @@ export function Header({ locale, onChangeLanguage }: HeaderProps) {
               ▾
             </span>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </header>
+    </motion.header>
   )
 }

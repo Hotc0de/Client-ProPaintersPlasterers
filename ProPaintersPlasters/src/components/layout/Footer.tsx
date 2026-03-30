@@ -2,6 +2,8 @@ import { navigationItems } from '../../content/navigation'
 import { companyName, contactInfo, footerContent } from '../../content/site'
 import type { Locale } from '../../content/types'
 import { getLocalizedValue } from '../../utils/getLocalizedValue'
+import { motion, useReducedMotion } from 'framer-motion'
+import { fadeUp, getRevealProps, staggerContainer } from '../../utils/motion'
 import './Footer.css'
 
 type FooterProps = {
@@ -9,12 +11,14 @@ type FooterProps = {
 }
 
 export function Footer({ locale }: FooterProps) {
+  const reduceMotion = useReducedMotion()
+
   return (
-    <footer className="site-footer">
-      <div className="site-footer__inner">
+    <motion.footer className="site-footer" variants={fadeUp()} {...getRevealProps(reduceMotion)}>
+      <motion.div className="site-footer__inner" variants={staggerContainer(0.1)}>
 
         {/* LEFT - BRAND */}
-        <div className="site-footer__brand">
+        <motion.div className="site-footer__brand" variants={fadeUp()}>
           <h2 className="site-footer__company">
             {companyName}
           </h2>
@@ -33,29 +37,29 @@ export function Footer({ locale }: FooterProps) {
           >
             {contactInfo.email}
           </a>
-        </div>
+        </motion.div>
 
         {/* RIGHT - NAV */}
-        <div className="site-footer__nav-block">
+        <motion.div className="site-footer__nav-block" variants={fadeUp(0.04)}>
           <h3 className="site-footer__heading">
             {getLocalizedValue(footerContent.navigationLabel, locale)}
           </h3>
 
           <nav className="site-footer__nav">
             {navigationItems.map((item) => (
-              <a key={item.id} href={item.href}>
+              <motion.a key={item.id} href={item.href} whileHover={reduceMotion ? undefined : { x: 2 }}>
                 {getLocalizedValue(item.label, locale)}
-              </a>
+              </motion.a>
             ))}
           </nav>
-        </div>
+        </motion.div>
 
-      </div>
+      </motion.div>
 
       {/* BOTTOM */}
-      <div className="site-footer__bottom">
+      <motion.div className="site-footer__bottom" variants={fadeUp(0.08)}>
         © {new Date().getFullYear()} {companyName}. {getLocalizedValue(footerContent.copyright, locale)}
-      </div>
-    </footer>
+      </motion.div>
+    </motion.footer>
   )
 }

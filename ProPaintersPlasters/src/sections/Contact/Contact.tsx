@@ -6,6 +6,14 @@ import { contactInfo } from '../../content/site'
 import type { Locale } from '../../content/types'
 import { getLocalizedValue } from '../../utils/getLocalizedValue'
 import contactImage from '../../assets/images/gallery/gallery-2.jpg'
+import { motion, useReducedMotion } from 'framer-motion'
+import {
+  fadeUp,
+  getRevealProps,
+  scaleOnHover,
+  softScaleIn,
+  staggerContainer,
+} from '../../utils/motion'
 import './Contact.css'
 
 type ContactProps = {
@@ -23,6 +31,7 @@ type ContactFormData = {
 type ContactFormErrors = Partial<Record<keyof ContactFormData, string>>
 
 export function Contact({ locale }: ContactProps) {
+  const reduceMotion = useReducedMotion()
   const [formData, setFormData] = useState<ContactFormData>({
     fullName: '',
     email: '',
@@ -132,7 +141,11 @@ export function Contact({ locale }: ContactProps) {
         />
 
         <div className="contact__layout">
-          <article className="contact-panel contact-panel--info">
+          <motion.article
+            className="contact-panel contact-panel--info"
+            variants={softScaleIn()}
+            {...getRevealProps(reduceMotion)}
+          >
             <div className="contact-panel__image-wrap">
               <img
                 src={contactImage}
@@ -142,7 +155,7 @@ export function Contact({ locale }: ContactProps) {
               <div className="contact-panel__image-overlay" />
             </div>
 
-            <div className="contact-panel__details">
+            <motion.div className="contact-panel__details" variants={staggerContainer(0.08)}>
               <div className="contact-detail-row">
                 <span className="contact-detail-row__icon" aria-hidden="true">☎</span>
                 <div className="contact-detail-row__text">
@@ -174,14 +187,25 @@ export function Contact({ locale }: ContactProps) {
                   <p>{text.hoursValue}</p>
                 </div>
               </div>
-            </div>
-          </article>
+            </motion.div>
+          </motion.article>
 
-          <article className="contact-panel contact-panel--form">
-            <h3 className="contact-form__title">{text.formTitle}</h3>
+          <motion.article
+            className="contact-panel contact-panel--form"
+            variants={softScaleIn(0.05)}
+            {...getRevealProps(reduceMotion)}
+          >
+            <motion.h3 className="contact-form__title" variants={fadeUp()}>
+              {text.formTitle}
+            </motion.h3>
 
-            <form className="contact-form" onSubmit={onSubmit} noValidate>
-              <div className="contact-form__group">
+            <motion.form
+              className="contact-form"
+              onSubmit={onSubmit}
+              noValidate
+              variants={staggerContainer(0.06)}
+            >
+              <motion.div className="contact-form__group" variants={fadeUp()}>
                 <label htmlFor="fullName">{text.fullNameLabel}</label>
                 <input
                   id="fullName"
@@ -193,10 +217,10 @@ export function Contact({ locale }: ContactProps) {
                   required
                 />
                 {formErrors.fullName && <p className="contact-form__error">{formErrors.fullName}</p>}
-              </div>
+              </motion.div>
 
-              <div className="contact-form__row">
-                <div className="contact-form__group">
+              <motion.div className="contact-form__row" variants={fadeUp()}>
+                <motion.div className="contact-form__group">
                   <label htmlFor="email">{text.emailInputLabel}</label>
                   <input
                     id="email"
@@ -208,9 +232,9 @@ export function Contact({ locale }: ContactProps) {
                     required
                   />
                   {formErrors.email && <p className="contact-form__error">{formErrors.email}</p>}
-                </div>
+                </motion.div>
 
-                <div className="contact-form__group">
+                <motion.div className="contact-form__group">
                   <label htmlFor="phone">{text.phoneInputLabel}</label>
                   <input
                     id="phone"
@@ -220,10 +244,10 @@ export function Contact({ locale }: ContactProps) {
                     onChange={onFieldChange}
                     placeholder={text.phonePlaceholder}
                   />
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
-              <div className="contact-form__group">
+              <motion.div className="contact-form__group" variants={fadeUp()}>
                 <label htmlFor="service">{text.serviceLabel}</label>
                 <select
                   id="service"
@@ -238,9 +262,9 @@ export function Contact({ locale }: ContactProps) {
                     </option>
                   ))}
                 </select>
-              </div>
+              </motion.div>
 
-              <div className="contact-form__group">
+              <motion.div className="contact-form__group" variants={fadeUp()}>
                 <label htmlFor="message">{text.messageLabel}</label>
                 <textarea
                   id="message"
@@ -252,20 +276,25 @@ export function Contact({ locale }: ContactProps) {
                   required
                 />
                 {formErrors.message && <p className="contact-form__error">{formErrors.message}</p>}
-              </div>
+              </motion.div>
 
-              <button type="submit" className="contact-form__submit">
+              <motion.button
+                type="submit"
+                className="contact-form__submit"
+                whileHover={reduceMotion ? undefined : scaleOnHover}
+                variants={fadeUp()}
+              >
                 <span aria-hidden="true">➤</span>
                 <span>{text.submitButtonText}</span>
-              </button>
+              </motion.button>
 
               {isSubmitted && (
                 <p className="contact-form__success" role="status" aria-live="polite">
                   {text.successMessage}
                 </p>
               )}
-            </form>
-          </article>
+            </motion.form>
+          </motion.article>
         </div>
       </div>
     </section>

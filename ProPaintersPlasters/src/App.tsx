@@ -7,12 +7,21 @@ import { Gallery } from './sections/Gallery/Gallery'
 import { Hero } from './sections/Hero/Hero'
 import { Services } from './sections/Services/Services'
 import { useLanguage } from './hooks/useLanguage'
+import { motion, useReducedMotion } from 'framer-motion'
+import { durations, fadeIn, luxuryEase } from './utils/motion'
 
 export default function App() {
   const { locale, setLocale } = useLanguage('en')
+  const reduceMotion = useReducedMotion()
 
   return (
-    <div id="top">
+    <motion.div
+      id="top"
+      initial={reduceMotion ? false : 'hidden'}
+      animate="visible"
+      variants={fadeIn(0)}
+      transition={{ duration: durations.slow, ease: luxuryEase }}
+    >
       <Header locale={locale} onChangeLanguage={setLocale} />
 
       <main>
@@ -25,6 +34,6 @@ export default function App() {
       </main>
 
       <Footer locale={locale} />
-    </div>
+    </motion.div>
   )
 }

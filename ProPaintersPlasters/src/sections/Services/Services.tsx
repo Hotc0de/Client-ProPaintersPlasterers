@@ -2,6 +2,13 @@ import type { Locale } from '../../content/types'
 import { SectionHeading } from '../../components/common/SectionHeading'
 import { serviceItems, servicesContent } from '../../content/home'
 import { getLocalizedValue } from '../../utils/getLocalizedValue'
+import { motion, useReducedMotion } from 'framer-motion'
+import {
+  fadeUp,
+  getRevealProps,
+  softScaleIn,
+  staggerContainer,
+} from '../../utils/motion'
 
 import interiorIcon from '../../assets/icons/interior.svg'
 import exteriorIcon from '../../assets/icons/exterior.svg'
@@ -22,6 +29,8 @@ const iconMap: Record<string, string> = {
 }
 
 export function Services({ locale }: ServicesProps) {
+  const reduceMotion = useReducedMotion()
+
   return (
     <section id="services" className="services">
       <div className="services__inner">
@@ -33,9 +42,17 @@ export function Services({ locale }: ServicesProps) {
           align="center"
         />
 
-        <div className="services__grid">
+        <motion.div
+          className="services__grid"
+          variants={staggerContainer(0.1)}
+          {...getRevealProps(reduceMotion)}
+        >
           {serviceItems.map((service) => (
-            <article key={service.id} className="service-card">
+            <motion.article
+              key={service.id}
+              className="service-card"
+              variants={softScaleIn()}
+            >
               <div
                 className="service-card__image"
                 style={{ backgroundImage: `url(${service.image})` }}
@@ -43,31 +60,31 @@ export function Services({ locale }: ServicesProps) {
 
               <div className="service-card__overlay" />
 
-              <div className="service-card__content">
-                <div className="service-card__badge">
+              <motion.div className="service-card__content" variants={staggerContainer(0.08)}>
+                <motion.div className="service-card__badge" variants={fadeUp()}>
                   <img
                     src={iconMap[service.id]}
                     alt=""
                     className="service-card__icon"
                     aria-hidden="true"
                   />
-                </div>
+                </motion.div>
 
-                <h3 className="service-card__title">
+                <motion.h3 className="service-card__title" variants={fadeUp(0.02)}>
                   {getLocalizedValue(service.title, locale)}
-                </h3>
+                </motion.h3>
 
-                <p className="service-card__description">
+                <motion.p className="service-card__description" variants={fadeUp(0.04)}>
                   {getLocalizedValue(service.description, locale)}
-                </p>
+                </motion.p>
 
-                <div className="service-card__arrow" aria-hidden="true">
+                <motion.div className="service-card__arrow" aria-hidden="true" variants={fadeUp(0.06)}>
                   →
-                </div>
-              </div>
-            </article>
+                </motion.div>
+              </motion.div>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

@@ -1,5 +1,7 @@
 import aboutImage from '../../assets/images/about/about-main.jpeg'
 import type { Locale } from '../../content/types'
+import { motion, useReducedMotion } from 'framer-motion'
+import { fadeUp, getRevealProps, scaleOnHover, softScaleIn, staggerContainer } from '../../utils/motion'
 import './AboutUs.css'
 
 type AboutUsProps = {
@@ -7,6 +9,8 @@ type AboutUsProps = {
 }
 
 export function AboutUs({ locale }: AboutUsProps) {
+  const reduceMotion = useReducedMotion()
+
   const content = {
     title: {
       en: 'About Us',
@@ -145,86 +149,109 @@ export function AboutUs({ locale }: AboutUsProps) {
 
   return (
     <section id="about-us" className="about-us-page">
-      <section className="about-hero">
-        <div className="about-hero-content">
-          <h1 className="about-hero-title">{t(content.title)}</h1>
-          <p className="about-hero-subtitle">{t(content.subtitle)}</p>
-        </div>
-      </section>
+      <motion.section
+        className="about-hero"
+        variants={staggerContainer(0.1)}
+        initial={reduceMotion ? false : 'hidden'}
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.35 }}
+      >
+        <motion.div className="about-hero-content" variants={fadeUp()}>
+          <motion.h1 className="about-hero-title" variants={fadeUp()}>{t(content.title)}</motion.h1>
+          <motion.p className="about-hero-subtitle" variants={fadeUp(0.04)}>{t(content.subtitle)}</motion.p>
+        </motion.div>
+      </motion.section>
 
       <section className="about-section">
         <div className="about-container">
-          <div className="about-content-wrapper">
-            <div className="about-text-content">
-              <div className="about-label">{t(content.story.label)}</div>
-              <h2 className="about-section-title">{t(content.story.title)}</h2>
-              <p className="about-section-text">{t(content.story.content)}</p>
-            </div>
+          <motion.div
+            className="about-content-wrapper"
+            variants={staggerContainer(0.12)}
+            {...getRevealProps(reduceMotion)}
+          >
+            <motion.div className="about-text-content" variants={fadeUp()}>
+              <motion.div className="about-label" variants={fadeUp()}>{t(content.story.label)}</motion.div>
+              <motion.h2 className="about-section-title" variants={fadeUp(0.03)}>{t(content.story.title)}</motion.h2>
+              <motion.p className="about-section-text" variants={fadeUp(0.05)}>{t(content.story.content)}</motion.p>
+            </motion.div>
 
-            <div className="about-image-container">
-              <img
+            <motion.div className="about-image-container" variants={softScaleIn(0.06)}>
+              <motion.img
                 src={aboutImage}
                 alt={t(content.story.title)}
                 className="about-main-image"
               />
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       <section className="about-section about-section-alt">
         <div className="about-container">
-          <div className="about-content-wrapper about-content-reverse">
-            <div className="about-image-container">
-              <img
+          <motion.div
+            className="about-content-wrapper about-content-reverse"
+            variants={staggerContainer(0.12)}
+            {...getRevealProps(reduceMotion)}
+          >
+            <motion.div className="about-image-container" variants={softScaleIn()}>
+              <motion.img
                 src={aboutImage}
                 alt={t(content.mission.title)}
                 className="about-main-image"
               />
-            </div>
+            </motion.div>
 
-            <div className="about-text-content">
-              <div className="about-label">{t(content.mission.label)}</div>
-              <h2 className="about-section-title">{t(content.mission.title)}</h2>
-              <p className="about-section-text">{t(content.mission.content)}</p>
-            </div>
-          </div>
+            <motion.div className="about-text-content" variants={fadeUp(0.04)}>
+              <motion.div className="about-label" variants={fadeUp()}>{t(content.mission.label)}</motion.div>
+              <motion.h2 className="about-section-title" variants={fadeUp(0.03)}>{t(content.mission.title)}</motion.h2>
+              <motion.p className="about-section-text" variants={fadeUp(0.05)}>{t(content.mission.content)}</motion.p>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       <section className="about-section">
         <div className="about-container">
-          <div className="about-values-header">
+          <motion.div className="about-values-header" variants={fadeUp()} {...getRevealProps(reduceMotion)}>
             <h2 className="about-section-title-centered">{t(content.values.title)}</h2>
-          </div>
+          </motion.div>
 
-          <div className="about-values-grid">
+          <motion.div
+            className="about-values-grid"
+            variants={staggerContainer(0.08)}
+            {...getRevealProps(reduceMotion)}
+          >
             {content.values.items.map((value, index) => (
-              <article key={value.id} className="about-value-card">
+              <motion.article
+                key={value.id}
+                className="about-value-card"
+                variants={softScaleIn()}
+                whileHover={reduceMotion ? undefined : scaleOnHover}
+              >
                 <div className="about-value-icon">{valueIcons[index] ?? '•'}</div>
                 <h3 className="about-value-title">{t(value.title)}</h3>
                 <p className="about-value-description">{t(value.description)}</p>
-              </article>
+              </motion.article>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       <section className="about-section about-section-alt">
         <div className="about-container">
-          <div className="about-team-content">
-            <h2 className="about-section-title-centered">{t(content.team.title)}</h2>
-            <p className="about-team-description">{t(content.team.description)}</p>
-          </div>
+          <motion.div className="about-team-content" variants={staggerContainer(0.1)} {...getRevealProps(reduceMotion)}>
+            <motion.h2 className="about-section-title-centered" variants={fadeUp()}>{t(content.team.title)}</motion.h2>
+            <motion.p className="about-team-description" variants={fadeUp(0.04)}>{t(content.team.description)}</motion.p>
+          </motion.div>
         </div>
       </section>
 
       <section className="about-section about-commitment">
         <div className="about-container">
-          <div className="about-commitment-content">
-            <h2 className="about-section-title-centered">{t(content.commitment.title)}</h2>
-            <p className="about-commitment-description">{t(content.commitment.description)}</p>
-          </div>
+          <motion.div className="about-commitment-content" variants={staggerContainer(0.1)} {...getRevealProps(reduceMotion)}>
+            <motion.h2 className="about-section-title-centered" variants={fadeUp()}>{t(content.commitment.title)}</motion.h2>
+            <motion.p className="about-commitment-description" variants={fadeUp(0.04)}>{t(content.commitment.description)}</motion.p>
+          </motion.div>
         </div>
       </section>
     </section>

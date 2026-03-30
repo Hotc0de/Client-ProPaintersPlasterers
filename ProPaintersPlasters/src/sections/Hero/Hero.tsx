@@ -1,6 +1,15 @@
 import { heroContent, heroStats } from '../../content/home'
 import type { Locale } from '../../content/types'
 import { getLocalizedValue } from '../../utils/getLocalizedValue'
+import { motion, useReducedMotion } from 'framer-motion'
+import {
+  durations,
+  fadeUp,
+  luxuryEase,
+  scaleOnHover,
+  staggerContainer,
+  useSubtleParallax,
+} from '../../utils/motion'
 import './Hero.css'
 import heroImage from '../../assets/images/hero/hero.jpg'
 
@@ -9,53 +18,72 @@ type HeroProps = {
 }
 
 export function Hero({ locale }: HeroProps) {
+  const reduceMotion = useReducedMotion()
+  const parallaxStyle = useSubtleParallax(24)
+
   return (
-    <section
+    <motion.section
       className="hero"
       style={{ backgroundImage: `url(${heroImage})` }}
+      initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: durations.slow, ease: luxuryEase }}
     >
       <div className="hero__overlay" />
-      <div className="hero__glow" />
+      <motion.div className="hero__glow" style={parallaxStyle} />
 
       <div className="hero__inner">
-        <div className="hero__content">
-          <p className="hero__eyebrow">
+        <motion.div
+          className="hero__content"
+          variants={staggerContainer(0.12, 0.1)}
+          initial={reduceMotion ? false : 'hidden'}
+          animate="visible"
+        >
+          <motion.p className="hero__eyebrow" variants={fadeUp()}>
             <span className="hero__eyebrow-stars" aria-hidden="true">
               ★★★★★
             </span>
             <span>{getLocalizedValue(heroContent.eyebrow, locale)}</span>
-          </p>
+          </motion.p>
 
-          <h1 className="hero__title">
+          <motion.h1 className="hero__title" variants={fadeUp(0.03)}>
             {getLocalizedValue(heroContent.title, locale)}
-          </h1>
+          </motion.h1>
 
-          <p className="hero__description">
+          <motion.p className="hero__description" variants={fadeUp(0.06)}>
             {getLocalizedValue(heroContent.description, locale)}
-          </p>
+          </motion.p>
 
-          <div className="hero__actions">
-            <a href="#contact" className="btn btn--primary">
+          <motion.div className="hero__actions" variants={fadeUp(0.09)}>
+            <motion.a
+              href="#contact"
+              className="btn btn--primary"
+              whileHover={reduceMotion ? undefined : scaleOnHover}
+            >
               {getLocalizedValue(heroContent.primaryButton, locale)}
-            </a>
+            </motion.a>
 
-            <a href="#gallery" className="btn btn--secondary hero__secondary-btn">
+            <motion.a
+              href="#gallery"
+              className="btn btn--secondary hero__secondary-btn"
+              whileHover={reduceMotion ? undefined : scaleOnHover}
+            >
               {getLocalizedValue(heroContent.secondaryButton, locale)}
-            </a>
-          </div>
+            </motion.a>
+          </motion.div>
 
-          <div className="hero__stats">
+          <motion.div className="hero__stats" variants={staggerContainer(0.08)}>
             {heroStats.map((stat) => (
-              <div key={stat.id} className="hero__stat">
+              <motion.div key={stat.id} className="hero__stat" variants={fadeUp()}>
                 <p className="hero__stat-value">{stat.value}</p>
                 <p className="hero__stat-label">
                   {getLocalizedValue(stat.label, locale)}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   )
 }

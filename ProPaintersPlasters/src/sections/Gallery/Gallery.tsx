@@ -1,6 +1,13 @@
 import type { Locale } from '../../content/types'
 import { galleryItems, galleryContent } from '../../content/home'
 import { getLocalizedValue } from '../../utils/getLocalizedValue'
+import { motion, useReducedMotion } from 'framer-motion'
+import {
+  fadeUp,
+  getRevealProps,
+  softScaleIn,
+  staggerContainer,
+} from '../../utils/motion'
 import './Gallery.css'
 
 type GalleryProps = {
@@ -8,46 +15,66 @@ type GalleryProps = {
 }
 
 export function Gallery({ locale }: GalleryProps) {
+  const reduceMotion = useReducedMotion()
+
   return (
     <section id="gallery" className="gallery">
       <div className="gallery__inner">
-        
-        <div className="gallery__header">
-          <p className="gallery__eyebrow">
+        <motion.div
+          className="gallery__header"
+          variants={staggerContainer(0.1)}
+          {...getRevealProps(reduceMotion)}
+        >
+          <motion.p className="gallery__eyebrow" variants={fadeUp()}>
             {getLocalizedValue(galleryContent.eyebrow, locale)}
-          </p>
+          </motion.p>
 
-          <h2 className="gallery__title">
+          <motion.h2 className="gallery__title" variants={fadeUp(0.03)}>
             {getLocalizedValue(galleryContent.title, locale)}
-          </h2>
+          </motion.h2>
 
-          <p className="gallery__description">
+          <motion.p className="gallery__description" variants={fadeUp(0.06)}>
             {getLocalizedValue(galleryContent.description, locale)}
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="gallery__grid">
+        <motion.div
+          className="gallery__grid"
+          variants={staggerContainer(0.08)}
+          {...getRevealProps(reduceMotion)}
+        >
           {galleryItems.map((item) => (
-            <div key={item.id} className="gallery__card">
-              
-              <div className="gallery__image-wrapper">
-                <img
+            <motion.div
+              key={item.id}
+              className="gallery__card"
+              variants={softScaleIn()}
+            >
+              <motion.div className="gallery__image-wrapper">
+                <motion.img
                   src={item.image}
                   alt={getLocalizedValue(item.alt, locale)}
                   className="gallery__image"
                 />
 
-                <div className="gallery__overlay">
-                  <h3 className="gallery__card-title">
+                <motion.div
+                  className="gallery__overlay"
+                  initial={reduceMotion ? undefined : { opacity: 0 }}
+                  whileHover={reduceMotion ? undefined : { opacity: 1 }}
+                  transition={{ duration: 0.35 }}
+                >
+                  <motion.h3
+                    className="gallery__card-title"
+                    initial={reduceMotion ? undefined : { opacity: 0, y: 8 }}
+                    whileHover={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                    transition={{ duration: 0.35 }}
+                  >
                     {getLocalizedValue(item.title, locale)}
-                  </h3>
-                </div>
-              </div>
-
-            </div>
+                  </motion.h3>
+                </motion.div>
+              </motion.div>
+            </motion.div>
           ))}
-        </div>
-
+        </motion.div>
       </div>
     </section>
   )

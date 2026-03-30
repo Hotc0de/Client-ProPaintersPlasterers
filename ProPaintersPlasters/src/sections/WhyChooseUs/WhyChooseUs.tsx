@@ -1,6 +1,8 @@
 import type { Locale } from '../../content/types'
 import { whyChooseUsContent, whyChooseUsFeatures } from '../../content/home'
 import { getLocalizedValue } from '../../utils/getLocalizedValue'
+import { motion, useReducedMotion } from 'framer-motion'
+import { fadeUp, getRevealProps, softScaleIn, staggerContainer } from '../../utils/motion'
 import './WhyChooseUs.css'
 
 type WhyChooseUsProps = {
@@ -8,23 +10,25 @@ type WhyChooseUsProps = {
 }
 
 export function WhyChooseUs({ locale }: WhyChooseUsProps) {
+  const reduceMotion = useReducedMotion()
+
   return (
     <section id="why-choose-us" className="WhyChooseUs">
       <div className="about__glow about__glow--left" />
       <div className="about__glow about__glow--right" />
 
-      <div className="about__inner">
-        <div className="about__media">
-          <div className="about__image-frame">
+      <motion.div className="about__inner" variants={staggerContainer(0.12)} {...getRevealProps(reduceMotion)}>
+        <motion.div className="about__media" variants={softScaleIn()}>
+          <motion.div className="about__image-frame" variants={fadeUp()}>
             <img
               src={whyChooseUsContent.image}
               alt={getLocalizedValue(whyChooseUsContent.imageAlt, locale)}
               className="about__image"
             />
             <div className="about__image-overlay" />
-          </div>
+          </motion.div>
 
-          <div className="about__floating-card">
+          <motion.div className="about__floating-card" variants={fadeUp(0.04)}>
             <span className="about__floating-label">★★★★★</span>
             <p className="about__floating-text">
               {locale === 'vi'
@@ -33,35 +37,35 @@ export function WhyChooseUs({ locale }: WhyChooseUsProps) {
                   ? '值得信赖且专业'
                   : 'Trusted and professional'}
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="about__content">
-          <p className="about__eyebrow">
+        <motion.div className="about__content" variants={staggerContainer(0.08)}>
+          <motion.p className="about__eyebrow" variants={fadeUp()}>
             {getLocalizedValue(whyChooseUsContent.eyebrow, locale)}
-          </p>
+          </motion.p>
 
-          <h2 className="about__title">
+          <motion.h2 className="about__title" variants={fadeUp(0.03)}>
             {getLocalizedValue(whyChooseUsContent.title, locale)}
-          </h2>
+          </motion.h2>
 
-          <p className="about__description">
+          <motion.p className="about__description" variants={fadeUp(0.05)}>
             {getLocalizedValue(whyChooseUsContent.description, locale)}
-          </p>
+          </motion.p>
 
-          <div className="about__features">
+          <motion.div className="about__features" variants={staggerContainer(0.06)}>
             {whyChooseUsFeatures.map((feature) => (
-              <div key={feature.id} className="about__feature">
+              <motion.div key={feature.id} className="about__feature" variants={fadeUp()}>
                 <span className="about__feature-icon">✓</span>
                 <span className="about__feature-text">
                   {getLocalizedValue(feature.text, locale)}
                 </span>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
-          <div className="about__stats">
-            <div className="about__stat">
+          <motion.div className="about__stats" variants={staggerContainer(0.08)}>
+            <motion.div className="about__stat" variants={fadeUp()}>
               <p className="about__stat-value">10+</p>
               <p className="about__stat-label">
                 {locale === 'vi'
@@ -70,9 +74,9 @@ export function WhyChooseUs({ locale }: WhyChooseUsProps) {
                     ? '年经验'
                     : 'Years experience'}
               </p>
-            </div>
+            </motion.div>
 
-            <div className="about__stat">
+            <motion.div className="about__stat" variants={fadeUp()}>
               <p className="about__stat-value">200+</p>
               <p className="about__stat-label">
                 {locale === 'vi'
@@ -81,9 +85,9 @@ export function WhyChooseUs({ locale }: WhyChooseUsProps) {
                     ? '已完成项目'
                     : 'Projects completed'}
               </p>
-            </div>
+            </motion.div>
 
-            <div className="about__stat">
+            <motion.div className="about__stat" variants={fadeUp()}>
               <p className="about__stat-value">
                 {locale === 'vi'
                   ? 'Nhà ở & Thương mại'
@@ -98,10 +102,10 @@ export function WhyChooseUs({ locale }: WhyChooseUsProps) {
                     ? '各类规模项目'
                     : 'Projects of all sizes'}
               </p>
-            </div>
-          </div>
-        </div>
-      </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
     </section>
   )
 }

@@ -1,5 +1,6 @@
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 110px;
 }
 
 body {
@@ -174,5 +175,21 @@ textarea {
     width: 100%;
     min-height: 54px;
     padding: 0 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .btn,
+  .service-card,
+  .gallery__image,
+  .about-main-image,
+  .contact-form__submit,
+  .site-footer__nav a,
+  .site-header__nav a {
+    transition-duration: 0.01ms !important;
   }
 }
