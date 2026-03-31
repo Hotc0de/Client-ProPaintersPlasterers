@@ -2,35 +2,35 @@ import type { Locale } from '../../content/types'
 import { whyChooseUsContent, whyChooseUsFeatures } from '../../content/home'
 import { getLocalizedValue } from '../../utils/getLocalizedValue'
 import { motion, useReducedMotion } from 'framer-motion'
-import { fadeUp, getRevealProps, revealViewport, softScaleIn, staggerContainer } from '../../utils/motion'
+import { fadeUp, getRevealProps, softScaleIn, staggerContainer } from '../../utils/motion'
 import './WhyChooseUs.css'
 
 type WhyChooseUsProps = {
   locale: Locale
 }
 
-const eyebrowVariants = {
-  hidden: { opacity: 0, y: 18 },
+const heroTitleVariants = {
+  hidden: { opacity: 0, y: 28 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 1.6,
+      duration: 2,
       ease: 'easeOut' as const,
       delay: 0,
     },
   },
 } as const
 
-const titleVariants = {
-  hidden: { opacity: 0, y: 18 },
+const heroSubtitleVariants = {
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 1.9,
+      duration: 2,
       ease: 'easeOut' as const,
-      delay: 0.24,
+      delay: 0.3,
     },
   },
 } as const
@@ -57,19 +57,21 @@ export function WhyChooseUs({ locale }: WhyChooseUsProps) {
       <div className="about__glow about__glow--right" />
 
       <motion.div
-        className="about__heading-block"
-        variants={staggerContainer(0.12)}
+        className="whychooseus-hero"
+        variants={staggerContainer(0.1)}
         initial={reduceMotion ? false : 'hidden'}
         whileInView="visible"
-        viewport={revealViewport}
+        viewport={{ once: true, amount: 0.35 }}
       >
-        <motion.p className="about__eyebrow" variants={eyebrowVariants}>
-          {getLocalizedValue(whyChooseUsContent.eyebrow, locale)}
-        </motion.p>
+        <motion.div className="whychooseus-hero-content" variants={staggerContainer(0)}>
+          <motion.h2 className="whychooseus-hero-title" variants={heroTitleVariants}>
+            {getLocalizedValue(whyChooseUsContent.eyebrow, locale)}
+          </motion.h2>
 
-        <motion.h2 className="about__title" variants={titleVariants}>
-          {getLocalizedValue(whyChooseUsContent.title, locale)}
-        </motion.h2>
+          <motion.p className="whychooseus-hero-subtitle" variants={heroSubtitleVariants}>
+            {getLocalizedValue(whyChooseUsContent.title, locale)}
+          </motion.p>
+        </motion.div>
       </motion.div>
 
       <motion.div className="about__inner" variants={staggerContainer(0.12)} {...getRevealProps(reduceMotion)}>
