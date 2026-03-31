@@ -70,7 +70,7 @@ export function Services({ locale }: ServicesProps) {
 
   return (
     <section id="services" className="services">
-      <div className="services__inner">
+      <div className="services__intro-hero">
         <motion.div
           className="section-heading section-heading--center services__heading"
           variants={staggerContainer(0.12)}
@@ -90,7 +90,9 @@ export function Services({ locale }: ServicesProps) {
             {getLocalizedValue(servicesContent.description, locale)}
           </motion.p>
         </motion.div>
+      </div>
 
+      <div className="services__inner">
         <motion.div
           className="services__grid"
           variants={staggerContainer(0.1)}

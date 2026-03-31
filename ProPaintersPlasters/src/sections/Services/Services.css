@@ -1,6 +1,6 @@
 .services {
   position: relative;
-  padding: 40px 20px calc(var(--space-section) - 18px);
+  padding: 0 0 calc(var(--space-section) - 18px);
   background:
     radial-gradient(circle at 12% 18%, rgba(212, 175, 55, 0.08), transparent 24%),
     radial-gradient(circle at 88% 12%, rgba(66, 110, 210, 0.08), transparent 24%),
@@ -11,11 +11,33 @@
 .services__inner {
   max-width: var(--container-width);
   margin: 0 auto;
+  padding: 40px 20px 0;
+}
+
+.services__intro-hero {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0a0e1a 0%, #151922 100%);
+  padding: 50px 20px 44px;
+}
+
+.services__intro-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .services__heading {
   max-width: 760px;
-  margin: 0 auto 44px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .services__eyebrow {
@@ -224,11 +246,19 @@
 
 @media (max-width: 900px) {
   .services {
-    padding: 35px 20px calc(var(--space-section-mobile) - 10px);
+    padding: 0 0 calc(var(--space-section-mobile) - 10px);
+  }
+
+  .services__intro-hero {
+    padding: 44px 20px 38px;
+  }
+
+  .services__inner {
+    padding: 32px 20px 0;
   }
 
   .services__heading {
-    margin: 0 auto 32px;
+    margin: 0 auto;
   }
 
   .services__eyebrow {

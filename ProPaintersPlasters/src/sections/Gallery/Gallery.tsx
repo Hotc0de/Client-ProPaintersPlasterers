@@ -4,8 +4,6 @@ import { getLocalizedValue } from '../../utils/getLocalizedValue'
 import { motion, useReducedMotion } from 'framer-motion'
 import {
   getRevealProps,
-  luxuryEase,
-  durations,
   softScaleIn,
   staggerContainer,
   revealViewport,
@@ -17,14 +15,14 @@ type GalleryProps = {
 }
 
 const titleVariant = {
-  hidden: { opacity: 0, y: 38 },
+  hidden: { opacity: 0, y: 18 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: durations.slow,
-      ease: luxuryEase,
-      delay: 0.14,
+      duration: 1.9,
+      ease: 'easeOut' as const,
+      delay: 0,
     },
   },
 }
@@ -35,22 +33,9 @@ const descriptionVariant = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: durations.slow,
-      ease: luxuryEase,
+      duration: 1.9,
+      ease: 'easeOut' as const,
       delay: 0.24,
-    },
-  },
-}
-
-const eyebrowVariant = {
-  hidden: { opacity: 0, y: 14 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: durations.base,
-      ease: luxuryEase,
-      delay: 0.04,
     },
   },
 }
@@ -60,7 +45,7 @@ export function Gallery({ locale }: GalleryProps) {
 
   return (
     <section id="gallery" className="gallery">
-      <div className="gallery__inner">
+      <div className="gallery__intro-hero">
         <motion.div
           className="gallery__header"
           variants={staggerContainer(0)}
@@ -68,10 +53,6 @@ export function Gallery({ locale }: GalleryProps) {
           whileInView="visible"
           viewport={revealViewport}
         >
-          <motion.p className="gallery__eyebrow" variants={eyebrowVariant}>
-            {getLocalizedValue(galleryContent.eyebrow, locale)}
-          </motion.p>
-
           <motion.h2 className="gallery__title" variants={titleVariant}>
             {getLocalizedValue(galleryContent.title, locale)}
           </motion.h2>
@@ -80,7 +61,9 @@ export function Gallery({ locale }: GalleryProps) {
             {getLocalizedValue(galleryContent.description, locale)}
           </motion.p>
         </motion.div>
+      </div>
 
+      <div className="gallery__inner">
         <motion.div
           className="gallery__grid"
           variants={staggerContainer(0.08)}
