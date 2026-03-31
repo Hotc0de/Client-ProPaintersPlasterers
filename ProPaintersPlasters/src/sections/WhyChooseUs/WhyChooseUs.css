@@ -26,6 +26,7 @@
   background: linear-gradient(135deg, #0a0e1a 0%, #151922 100%);
   overflow: hidden;
   padding: 50px 2rem 44px;
+  margin-bottom: 72px;
 }
 
 .whychooseus-hero::before {
@@ -66,6 +67,7 @@
   .whychooseus-hero {
     min-height: auto;
     padding: 44px 1.25rem 38px;
+    margin-bottom: 56px;
   }
 }
 
@@ -424,5 +426,6 @@
   .whychooseus-hero {
     min-height: auto;
     padding: 40px 1rem 34px;
+    margin-bottom: 40px;
   }
 }
