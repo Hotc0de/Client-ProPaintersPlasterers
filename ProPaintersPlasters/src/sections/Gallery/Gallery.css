@@ -20,7 +20,7 @@
   align-items: center;
   justify-content: center;
   min-width: 168px;
-  margin-bottom: 20px;
+  margin-bottom: 0;
   padding: 10px 22px;
   border-radius: 999px;
   border: none;
@@ -129,6 +129,7 @@
 
   .gallery__eyebrow {
     min-width: 154px;
+    margin-bottom: 0;
     padding: 9px 20px;
     font-size: 1.02rem;
   }

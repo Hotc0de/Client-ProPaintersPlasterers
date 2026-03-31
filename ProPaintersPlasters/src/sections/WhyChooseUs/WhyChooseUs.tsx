@@ -13,7 +13,7 @@ export function WhyChooseUs({ locale }: WhyChooseUsProps) {
   const reduceMotion = useReducedMotion()
 
   return (
-    <section id="why-choose-us" className="WhyChooseUs">
+    <section id="why-choose-us" className="WhyChooseUs about">
       <div className="about__glow about__glow--left" />
       <div className="about__glow about__glow--right" />
 

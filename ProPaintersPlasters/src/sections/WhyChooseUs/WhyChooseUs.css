@@ -1,5 +1,6 @@
 .about {
   position: relative;
+  scroll-margin-top: 108px;
   padding: var(--space-section) 20px;
   background:
     radial-gradient(circle at 15% 20%, rgba(212, 175, 55, 0.08), transparent 24%),
@@ -7,6 +8,23 @@
     linear-gradient(180deg, #091321 0%, #0c1729 100%);
   overflow: hidden;
   isolation: isolate;
+}
+
+@media (min-width: 1025px) {
+  .WhyChooseUs {
+    min-height: calc(100svh - var(--header-height, 96px));
+    display: flex;
+    align-items: center;
+  }
+
+  .WhyChooseUs .about__inner {
+    width: 100%;
+    gap: 48px;
+  }
+
+  .WhyChooseUs .about__image {
+    height: 580px;
+  }
 }
 
 .about__glow {
@@ -260,6 +278,7 @@
 
 @media (max-width: 768px) {
   .about {
+    scroll-margin-top: 146px;
     padding: var(--space-section-mobile) 20px;
   }
 
