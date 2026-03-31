@@ -9,6 +9,45 @@ type WhyChooseUsProps = {
   locale: Locale
 }
 
+const eyebrowVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.9,
+      ease: [0.22, 1, 0.36, 1],
+      delay: 0.06,
+    },
+  },
+} as const
+
+const titleVariants = {
+  hidden: { opacity: 0, y: 34 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1.05,
+      ease: [0.22, 1, 0.36, 1],
+      delay: 0.16,
+    },
+  },
+} as const
+
+const descriptionVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.95,
+      ease: [0.22, 1, 0.36, 1],
+      delay: 0.28,
+    },
+  },
+} as const
+
 export function WhyChooseUs({ locale }: WhyChooseUsProps) {
   const reduceMotion = useReducedMotion()
 
@@ -41,15 +80,15 @@ export function WhyChooseUs({ locale }: WhyChooseUsProps) {
         </motion.div>
 
         <motion.div className="about__content" variants={staggerContainer(0.08)}>
-          <motion.p className="about__eyebrow" variants={fadeUp()}>
+          <motion.p className="about__eyebrow" variants={eyebrowVariants}>
             {getLocalizedValue(whyChooseUsContent.eyebrow, locale)}
           </motion.p>
 
-          <motion.h2 className="about__title" variants={fadeUp(0.03)}>
+          <motion.h2 className="about__title" variants={titleVariants}>
             {getLocalizedValue(whyChooseUsContent.title, locale)}
           </motion.h2>
 
-          <motion.p className="about__description" variants={fadeUp(0.05)}>
+          <motion.p className="about__description" variants={descriptionVariants}>
             {getLocalizedValue(whyChooseUsContent.description, locale)}
           </motion.p>
 

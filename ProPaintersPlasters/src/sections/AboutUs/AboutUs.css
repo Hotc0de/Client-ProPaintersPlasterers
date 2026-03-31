@@ -8,13 +8,13 @@
 /* Hero Section */
 .about-hero {
   position: relative;
-  min-height: 60vh;
+  min-height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #0a0e1a 0%, #151922 100%);
   overflow: hidden;
-  padding: 4rem 2rem;
+  padding: 50px 2rem 44px;
 }
 
 .about-hero::before {
@@ -29,22 +29,25 @@
   position: relative;
   z-index: 2;
   text-align: center;
-  max-width: 800px;
-  padding: 0 1.5rem;
+  max-width: 760px;
+  padding: 0 1rem;
 }
 
 .about-hero-title {
   font-size: clamp(3rem, 6vw, 5rem);
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   letter-spacing: -1px;
+  line-height: 1.05;
 }
 
 .about-hero-subtitle {
   font-size: clamp(1.1rem, 2vw, 1.5rem);
   color: #d4af37;
   font-weight: 300;
+  margin: 0;
+  line-height: 1.6;
   letter-spacing: 0.5px;
 }
 
@@ -246,8 +249,8 @@
 /* Responsive Design */
 @media (max-width: 968px) {
   .about-hero {
-    min-height: 50vh;
-    padding: 3rem 1.5rem;
+    min-height: auto;
+    padding: 44px 1.25rem 38px;
   }
 
   .about-section {
@@ -278,7 +281,8 @@
 
 @media (max-width: 640px) {
   .about-hero {
-    min-height: 40vh;
+    min-height: auto;
+    padding: 40px 1rem 34px;
   }
 
   .about-section {

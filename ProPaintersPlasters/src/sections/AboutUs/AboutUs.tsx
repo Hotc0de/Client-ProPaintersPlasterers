@@ -147,6 +147,32 @@ export function AboutUs({ locale }: AboutUsProps) {
 
   const t = (text: Record<Locale, string>) => text[locale]
 
+  const heroTitleVariants = {
+    hidden: { opacity: 0, y: 28 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 2,
+        ease: 'easeOut' as const,
+        delay: 0,
+      },
+    },
+  }
+
+  const heroSubtitleVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 2,
+        ease: 'easeOut' as const,
+        delay: 0.3,
+      },
+    },
+  }
+
   return (
     <section id="about-us" className="about-us-page">
       <motion.section
@@ -156,9 +182,9 @@ export function AboutUs({ locale }: AboutUsProps) {
         whileInView="visible"
         viewport={{ once: true, amount: 0.35 }}
       >
-        <motion.div className="about-hero-content" variants={fadeUp()}>
-          <motion.h1 className="about-hero-title" variants={fadeUp()}>{t(content.title)}</motion.h1>
-          <motion.p className="about-hero-subtitle" variants={fadeUp(0.04)}>{t(content.subtitle)}</motion.p>
+        <motion.div className="about-hero-content" variants={staggerContainer(0)}>
+          <motion.h1 className="about-hero-title" variants={heroTitleVariants}>{t(content.title)}</motion.h1>
+          <motion.p className="about-hero-subtitle" variants={heroSubtitleVariants}>{t(content.subtitle)}</motion.p>
         </motion.div>
       </motion.section>
 
