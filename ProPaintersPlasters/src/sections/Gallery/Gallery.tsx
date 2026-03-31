@@ -3,7 +3,6 @@ import { galleryItems, galleryContent } from '../../content/home'
 import { getLocalizedValue } from '../../utils/getLocalizedValue'
 import { motion, useReducedMotion } from 'framer-motion'
 import {
-  fadeUp,
   getRevealProps,
   luxuryEase,
   durations,
@@ -18,27 +17,40 @@ type GalleryProps = {
 }
 
 const titleVariant = {
-  hidden: { opacity: 0, y: 48 },
+  hidden: { opacity: 0, y: 38 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
       duration: durations.slow,
       ease: luxuryEase,
-      delay: 0.08,
+      delay: 0.14,
     },
   },
 }
 
 const descriptionVariant = {
-  hidden: { opacity: 0, x: 52 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
-    x: 0,
+    y: 0,
     transition: {
       duration: durations.slow,
       ease: luxuryEase,
-      delay: 0.16,
+      delay: 0.24,
+    },
+  },
+}
+
+const eyebrowVariant = {
+  hidden: { opacity: 0, y: 14 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: durations.base,
+      ease: luxuryEase,
+      delay: 0.04,
     },
   },
 }
@@ -56,7 +68,7 @@ export function Gallery({ locale }: GalleryProps) {
           whileInView="visible"
           viewport={revealViewport}
         >
-          <motion.p className="gallery__eyebrow" variants={fadeUp()}>
+          <motion.p className="gallery__eyebrow" variants={eyebrowVariant}>
             {getLocalizedValue(galleryContent.eyebrow, locale)}
           </motion.p>
 

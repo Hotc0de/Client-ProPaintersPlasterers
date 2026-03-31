@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import type { MouseEvent } from 'react'
 import { navigationItems } from '../../content/navigation'
 import { companyName } from '../../content/site'
 import type { Locale } from '../../content/types'
@@ -31,6 +32,41 @@ export function Header({ locale, onChangeLanguage }: HeaderProps) {
   const { activeSection, setActiveSection } = useActiveSection(navigationSectionIds, {
     defaultSectionId: 'home',
   })
+
+  const getHeaderOffset = () => {
+    const headerElement = document.querySelector<HTMLElement>('.site-header')
+
+    if (!headerElement) {
+      return 110
+    }
+
+    return Math.ceil(headerElement.getBoundingClientRect().height)
+  }
+
+  const scrollToSection = (sectionId: string) => {
+    const sectionElement = document.getElementById(sectionId)
+
+    if (!sectionElement) {
+      return
+    }
+
+    const headerOffset = getHeaderOffset()
+    const sectionTop = sectionElement.getBoundingClientRect().top + window.scrollY
+    const targetTop = Math.max(0, sectionTop - headerOffset + 2)
+
+    window.scrollTo({
+      top: targetTop,
+      behavior: reduceMotion ? 'auto' : 'smooth',
+    })
+
+    window.history.replaceState(null, '', `#${sectionId}`)
+  }
+
+  const handleNavClick = (event: MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    event.preventDefault()
+    setActiveSection(sectionId)
+    scrollToSection(sectionId)
+  }
 
   useEffect(() => {
     const onScroll = () => {
@@ -78,7 +114,7 @@ export function Header({ locale, onChangeLanguage }: HeaderProps) {
                 href={item.href}
                 className={activeSection === sectionId ? 'is-active' : undefined}
                 aria-current={activeSection === sectionId ? 'page' : undefined}
-                onClick={() => setActiveSection(sectionId)}
+                onClick={(event) => handleNavClick(event, sectionId)}
                 whileHover={reduceMotion ? undefined : { y: -1 }}
                 transition={{ duration: durations.fast, ease: luxuryEase }}
               >
