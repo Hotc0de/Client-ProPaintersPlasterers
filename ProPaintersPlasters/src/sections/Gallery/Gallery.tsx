@@ -5,13 +5,42 @@ import { motion, useReducedMotion } from 'framer-motion'
 import {
   fadeUp,
   getRevealProps,
+  luxuryEase,
+  durations,
   softScaleIn,
   staggerContainer,
+  revealViewport,
 } from '../../utils/motion'
 import './Gallery.css'
 
 type GalleryProps = {
   locale: Locale
+}
+
+const titleVariant = {
+  hidden: { opacity: 0, y: 48 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: durations.slow,
+      ease: luxuryEase,
+      delay: 0.08,
+    },
+  },
+}
+
+const descriptionVariant = {
+  hidden: { opacity: 0, x: 52 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: durations.slow,
+      ease: luxuryEase,
+      delay: 0.16,
+    },
+  },
 }
 
 export function Gallery({ locale }: GalleryProps) {
@@ -22,18 +51,20 @@ export function Gallery({ locale }: GalleryProps) {
       <div className="gallery__inner">
         <motion.div
           className="gallery__header"
-          variants={staggerContainer(0.1)}
-          {...getRevealProps(reduceMotion)}
+          variants={staggerContainer(0)}
+          initial={reduceMotion ? false : 'hidden'}
+          whileInView="visible"
+          viewport={revealViewport}
         >
           <motion.p className="gallery__eyebrow" variants={fadeUp()}>
             {getLocalizedValue(galleryContent.eyebrow, locale)}
           </motion.p>
 
-          <motion.h2 className="gallery__title" variants={fadeUp(0.03)}>
+          <motion.h2 className="gallery__title" variants={titleVariant}>
             {getLocalizedValue(galleryContent.title, locale)}
           </motion.h2>
 
-          <motion.p className="gallery__description" variants={fadeUp(0.06)}>
+          <motion.p className="gallery__description" variants={descriptionVariant}>
             {getLocalizedValue(galleryContent.description, locale)}
           </motion.p>
         </motion.div>

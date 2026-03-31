@@ -8,7 +8,7 @@ export const navigationItems: NavigationItem[] = [
       vi: 'Trang Chủ',
       zh: '首页',
     },
-    href: '#top',
+    href: '#home',
   },
   {
     id: 'services',
@@ -29,15 +29,15 @@ export const navigationItems: NavigationItem[] = [
     href: '#gallery',
   },
   {
-  id: 'why-choose-us',
-  label: {
-    en: 'Why Choose Us',
-    vi: 'Tại Sao Chọn Chúng Tôi',
-    zh: '为什么选择我们',
-},
-  href: '#why-choose-us',
+    id: 'why-choose-us',
+    label: {
+      en: 'Why Choose Us',
+      vi: 'Tại Sao Chọn Chúng Tôi',
+      zh: '为什么选择我们',
+    },
+    href: '#why-choose-us',
   },
-    {
+  {
     id: 'about-us',
     label: {
       en: 'About Us',

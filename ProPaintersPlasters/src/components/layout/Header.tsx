@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { navigationItems } from '../../content/navigation'
 import { companyName } from '../../content/site'
 import type { Locale } from '../../content/types'
+import { useActiveSection } from '../../hooks/useActiveSection'
 import { getLocalizedValue } from '../../utils/getLocalizedValue'
 import { motion, useReducedMotion } from 'framer-motion'
 import { durations, luxuryEase } from '../../utils/motion'
@@ -22,9 +23,14 @@ const languageOptions: Array<{
   { value: 'zh', label: '中文', flag: '🇨🇳' },
 ]
 
+const navigationSectionIds = navigationItems.map((item) => item.href.replace('#', ''))
+
 export function Header({ locale, onChangeLanguage }: HeaderProps) {
   const [isCompact, setIsCompact] = useState(false)
   const reduceMotion = useReducedMotion()
+  const { activeSection, setActiveSection } = useActiveSection(navigationSectionIds, {
+    defaultSectionId: 'home',
+  })
 
   useEffect(() => {
     const onScroll = () => {
@@ -63,16 +69,23 @@ export function Header({ locale, onChangeLanguage }: HeaderProps) {
         </motion.div>
 
         <nav className="site-header__nav" aria-label="Primary navigation">
-          {navigationItems.map((item) => (
-            <motion.a
-              key={item.id}
-              href={item.href}
-              whileHover={reduceMotion ? undefined : { y: -1 }}
-              transition={{ duration: durations.fast, ease: luxuryEase }}
-            >
-              {getLocalizedValue(item.label, locale)}
-            </motion.a>
-          ))}
+          {navigationItems.map((item) => {
+            const sectionId = item.href.replace('#', '')
+
+            return (
+              <motion.a
+                key={item.id}
+                href={item.href}
+                className={activeSection === sectionId ? 'is-active' : undefined}
+                aria-current={activeSection === sectionId ? 'page' : undefined}
+                onClick={() => setActiveSection(sectionId)}
+                whileHover={reduceMotion ? undefined : { y: -1 }}
+                transition={{ duration: durations.fast, ease: luxuryEase }}
+              >
+                {getLocalizedValue(item.label, locale)}
+              </motion.a>
+            )
+          })}
         </nav>
 
         <motion.div

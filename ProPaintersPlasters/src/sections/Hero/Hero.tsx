@@ -79,6 +79,7 @@ export function Hero({ locale }: HeroProps) {
 
   return (
     <motion.section
+      id="home"
       className="hero"
       style={{ backgroundImage: `url(${heroImage})` }}
       initial={reduceMotion ? false : { opacity: 0, y: 24 }}
