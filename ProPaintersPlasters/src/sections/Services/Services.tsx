@@ -5,7 +5,6 @@ import { motion, useReducedMotion } from 'framer-motion'
 import {
   fadeUp,
   getRevealProps,
-  luxuryEase,
   revealViewport,
   softScaleIn,
   staggerContainer,
@@ -43,40 +42,28 @@ export function Services({ locale }: ServicesProps) {
         viewport: revealViewport,
       }
 
-  const eyebrowVariants = {
-    hidden: { opacity: 0, y: -56 },
+  const titleVariants = {
+    hidden: { opacity: 0, y: 18 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.85,
-        ease: luxuryEase,
-      },
-    },
-  }
-
-  const titleVariants = {
-    hidden: { opacity: 0, x: 62 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.85,
-        ease: luxuryEase,
-        delay: 0.06,
+        duration: 1.9,
+        ease: 'easeOut' as const,
+        delay: 0,
       },
     },
   }
 
   const descriptionVariants = {
-    hidden: { opacity: 0, x: -62 },
+    hidden: { opacity: 0, y: 18 },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: {
-        duration: 0.85,
-        ease: luxuryEase,
-        delay: 0.12,
+        duration: 1.9,
+        ease: 'easeOut' as const,
+        delay: 0.24,
       },
     },
   }
@@ -86,16 +73,9 @@ export function Services({ locale }: ServicesProps) {
       <div className="services__inner">
         <motion.div
           className="section-heading section-heading--center services__heading"
-          variants={staggerContainer(0.1)}
+          variants={staggerContainer(0.12)}
           {...headingRevealProps}
         >
-          <motion.p
-            className="section-heading__eyebrow services__eyebrow"
-            variants={eyebrowVariants}
-          >
-            {getLocalizedValue(servicesContent.eyebrow, locale)}
-          </motion.p>
-
           <motion.h2
             className="section-heading__title services__title"
             variants={titleVariants}

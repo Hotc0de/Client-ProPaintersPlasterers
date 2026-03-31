@@ -1,6 +1,6 @@
 .services {
   position: relative;
-  padding: calc(var(--space-section) - 60px) 20px calc(var(--space-section) - 10px);
+  padding: 40px 20px calc(var(--space-section) - 18px);
   background:
     radial-gradient(circle at 12% 18%, rgba(212, 175, 55, 0.08), transparent 24%),
     radial-gradient(circle at 88% 12%, rgba(66, 110, 210, 0.08), transparent 24%),
@@ -15,21 +15,29 @@
 
 .services__heading {
   max-width: 760px;
-  margin: 0 auto 34px;
+  margin: 0 auto 44px;
 }
 
 .services__eyebrow {
-  margin-bottom: 14px;
-  font-size: 1.12rem;
-  letter-spacing: 1.45px;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  letter-spacing: 2px;
 }
 
 .services__title {
-  margin-bottom: 14px;
+  margin-bottom: 1rem;
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -1px;
 }
 
 .services__description {
-  line-height: 1.72;
+  margin: 0;
+  max-width: 760px;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  color: #d4af37;
 }
 
 .services__grid {
@@ -216,15 +224,27 @@
 
 @media (max-width: 900px) {
   .services {
-    padding: calc(var(--space-section-mobile) - 28px) 20px calc(var(--space-section-mobile) - 4px);
+    padding: 35px 20px calc(var(--space-section-mobile) - 10px);
   }
 
   .services__heading {
-    margin-bottom: 28px;
+    margin: 0 auto 32px;
   }
 
   .services__eyebrow {
     font-size: 1.02rem;
+  }
+
+  .services__title {
+    font-size: clamp(2.25rem, 9vw, 3.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.6px;
+  }
+
+  .services__description {
+    font-size: clamp(1rem, 4.2vw, 1.22rem);
+    line-height: 1.55;
+    letter-spacing: 0.2px;
   }
 
   .services__grid {
