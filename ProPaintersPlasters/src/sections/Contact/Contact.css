@@ -1,6 +1,5 @@
 .contact {
   position: relative;
-  padding: var(--space-section) 20px;
   background:
     radial-gradient(circle at 12% 20%, rgba(212, 175, 55, 0.08), transparent 28%),
     radial-gradient(circle at 88% 8%, rgba(70, 103, 190, 0.12), transparent 30%),
@@ -8,9 +7,78 @@
   border-top: 1px solid rgba(212, 175, 55, 0.1);
 }
 
+/* Hero Section — mirrors About Us hero */
+.contact-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 32px 2rem 24px;
+}
+
+.contact-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.contact-hero__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 760px;
+  padding: 0 1rem;
+}
+
+.contact-hero__eyebrow {
+  margin-bottom: 0;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #d4af37;
+}
+
+.contact-hero__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.contact-hero__subtitle {
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  color: #d4af37;
+  font-weight: 300;
+  margin: 0;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+}
+
 .contact__inner {
   max-width: var(--container-width);
   margin: 0 auto;
+  padding: 48px 20px var(--space-section);
+}
+
+@media (max-width: 768px) {
+  .contact-hero {
+    padding: 24px 1.5rem 18px;
+  }
+
+  .contact-hero__title {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+  }
+
+  .contact__inner {
+    padding: 32px 20px var(--space-section-mobile);
+  }
 }
 
 .contact__layout {

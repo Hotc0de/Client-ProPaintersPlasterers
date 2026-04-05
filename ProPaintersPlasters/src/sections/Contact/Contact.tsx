@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react'
 import type { ChangeEvent, FormEvent } from 'react'
-import { SectionHeading } from '../../components/common/SectionHeading'
 import { contactSectionContent } from '../../content/home'
 import { contactInfo } from '../../content/site'
 import type { Locale } from '../../content/types'
@@ -129,17 +128,47 @@ export function Contact({ locale }: ContactProps) {
     })
   }
 
+  const heroTitleVariants = {
+    hidden: { opacity: 0, y: 28 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 2, ease: 'easeOut' as const, delay: 0 },
+    },
+  }
+
+  const heroSubtitleVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 2, ease: 'easeOut' as const, delay: 0.3 },
+    },
+  }
+
   return (
     <section id="contact" className="contact">
-      <div className="contact__inner">
-        <SectionHeading
-          locale={locale}
-          eyebrow={contactSectionContent.eyebrow}
-          title={contactSectionContent.title}
-          description={contactSectionContent.description}
-          align="center"
-        />
+      <motion.section
+        className="contact-hero"
+        variants={staggerContainer(0.1)}
+        initial={reduceMotion ? false : 'hidden'}
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.35 }}
+      >
+        <motion.div className="contact-hero__content" variants={staggerContainer(0)}>
+          <motion.h1 className="contact-hero__eyebrow" variants={heroTitleVariants}>
+            {getLocalizedValue(contactSectionContent.eyebrow, locale)}
+          </motion.h1>
+          <motion.h2 className="contact-hero__title" variants={heroTitleVariants}>
+            {getLocalizedValue(contactSectionContent.title, locale)}
+          </motion.h2>
+          <motion.h3 className="contact-hero__subtitle" variants={heroSubtitleVariants}>
+            {getLocalizedValue(contactSectionContent.description, locale)}
+          </motion.h3>
+        </motion.div>
+      </motion.section>
 
+      <div className="contact__inner">
         <div className="contact__layout">
           <motion.article
             className="contact-panel contact-panel--info"
