@@ -117,30 +117,6 @@ export function AboutUs({ locale }: AboutUsProps) {
         },
       ],
     },
-    team: {
-      title: {
-        en: 'A Team You Can Rely On',
-        vi: 'Đội Ngũ Bạn Có Thể Tin Cậy',
-        zh: '值得信赖的团队',
-      },
-      description: {
-        en: 'Our experienced painters and plasterers work as one team, keeping your project smooth, efficient, and stress-free.',
-        vi: 'Đội ngũ thợ sơn và bả giàu kinh nghiệm của chúng tôi phối hợp chặt chẽ để dự án diễn ra mượt mà, hiệu quả và ít áp lực.',
-        zh: '我们的油漆与抹灰团队协作高效，让项目过程顺畅、省心、可控。',
-      },
-    },
-    commitment: {
-      title: {
-        en: 'Our Commitment to Every Project',
-        vi: 'Cam Kết Cho Mọi Công Trình',
-        zh: '我们对每个项目的承诺',
-      },
-      description: {
-        en: 'No shortcuts. No hidden surprises. Just dependable service, clear communication, and results that elevate your home or business.',
-        vi: 'Không cắt giảm quy trình. Không phát sinh mập mờ. Chỉ có dịch vụ đáng tin cậy, giao tiếp rõ ràng và kết quả nâng tầm công trình của bạn.',
-        zh: '不走捷径，不玩文字游戏。我们只提供可靠服务、清晰沟通和真正提升空间品质的成果。',
-      },
-    },
   }
 
   const valueIcons = ['★', '🛡', '❤', '◎']
@@ -263,23 +239,6 @@ export function AboutUs({ locale }: AboutUsProps) {
         </div>
       </section>
 
-      <section className="about-section about-section-alt">
-        <div className="about-container">
-          <motion.div className="about-team-content" variants={staggerContainer(0.1)} {...getRevealProps(reduceMotion)}>
-            <motion.h2 className="about-section-title-centered" variants={fadeUp()}>{t(content.team.title)}</motion.h2>
-            <motion.p className="about-team-description" variants={fadeUp(0.04)}>{t(content.team.description)}</motion.p>
-          </motion.div>
-        </div>
-      </section>
-
-      <section className="about-section about-commitment">
-        <div className="about-container">
-          <motion.div className="about-commitment-content" variants={staggerContainer(0.1)} {...getRevealProps(reduceMotion)}>
-            <motion.h2 className="about-section-title-centered" variants={fadeUp()}>{t(content.commitment.title)}</motion.h2>
-            <motion.p className="about-commitment-description" variants={fadeUp(0.04)}>{t(content.commitment.description)}</motion.p>
-          </motion.div>
-        </div>
-      </section>
     </section>
   )
 }
