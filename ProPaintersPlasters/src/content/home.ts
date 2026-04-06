@@ -287,7 +287,7 @@ export const whyChooseUsFeatures: FeatureItem[] = [
 // ================= CONTACT =================
 export const contactSectionContent: ContactSectionContent = {
   eyebrow: {
-    en: 'Get In Touch',
+    en: '',
     vi: 'Liên Hệ',
     zh: '联系我们',
   },
