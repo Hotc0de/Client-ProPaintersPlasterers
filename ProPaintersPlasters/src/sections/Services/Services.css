@@ -1,11 +1,13 @@
 .services {
   position: relative;
-  padding: 0 0 calc(var(--space-section) - 18px);
+  min-height: calc(100svh - var(--header-height, 72px));
+  padding: 0 0 40px;
   background:
     radial-gradient(circle at 12% 18%, rgba(212, 175, 55, 0.08), transparent 24%),
     radial-gradient(circle at 88% 12%, rgba(66, 110, 210, 0.08), transparent 24%),
     linear-gradient(180deg, #07111f 0%, #0a1424 100%);
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .services__inner {
@@ -248,7 +250,8 @@
 
 @media (max-width: 900px) {
   .services {
-    padding: 0 0 calc(var(--space-section-mobile) - 10px);
+    min-height: calc(100svh - var(--header-height, 72px));
+    padding: 0 0 28px;
   }
 
   .services__intro-hero {

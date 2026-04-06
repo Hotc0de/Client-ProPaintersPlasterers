@@ -1,8 +1,22 @@
 /* About Us Page Styles */
 
 .about-us-page {
-  min-height: 100vh;
   background: #0a0e1a;
+}
+
+/* First fold: hero + first section fills viewport below header */
+.about-first-fold {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100svh - var(--header-height, 72px));
+  box-sizing: border-box;
+}
+
+.about-section--first {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 2rem 2rem;
 }
 
 /* Hero Section */
@@ -53,7 +67,7 @@
 
 /* Section Styles */
 .about-section {
-  padding: 6rem 2rem;
+  padding: 5rem 2rem;
   position: relative;
 }
 
@@ -123,7 +137,7 @@
 
 .about-main-image {
   width: 100%;
-  height: 500px;
+  height: 440px;
   object-fit: cover;
   display: block;
   transition: transform 0.6s ease;
@@ -248,13 +262,21 @@
 
 /* Responsive Design */
 @media (max-width: 968px) {
+  .about-first-fold {
+    min-height: auto;
+  }
+
+  .about-section--first {
+    padding: 2rem 1.5rem;
+  }
+
   .about-hero {
     min-height: auto;
     padding: 28px 1.5rem;
   }
 
   .about-section {
-    padding: 4rem 1.5rem;
+    padding: 3.5rem 1.5rem;
   }
 
   .about-content-wrapper,
@@ -286,7 +308,11 @@
   }
 
   .about-section {
-    padding: 3rem 1rem;
+    padding: 2.5rem 1rem;
+  }
+
+  .about-section--first {
+    padding: 1.5rem 1rem;
   }
 
   .about-main-image {
