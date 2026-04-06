@@ -1,18 +1,20 @@
+import { useState } from 'react'
 import type { Locale } from '../../content/types'
-import { galleryItems, galleryContent } from '../../content/home'
+import { galleryContent } from '../../content/home'
+import { galleryProjects } from '../../content/galleryProjects'
 import { getLocalizedValue } from '../../utils/getLocalizedValue'
-import { motion, useReducedMotion } from 'framer-motion'
-import {
-  getRevealProps,
-  softScaleIn,
-  staggerContainer,
-  revealViewport,
-} from '../../utils/motion'
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
+import { staggerContainer, revealViewport } from '../../utils/motion'
+import { GalleryViewSwitcher } from './GalleryViewSwitcher'
+import { FeaturedProjectCarousel } from './FeaturedProjectCarousel'
+import { ProjectListPreview } from './ProjectListPreview'
 import './Gallery.css'
 
 type GalleryProps = {
   locale: Locale
 }
+
+type GalleryViewMode = 'featured' | 'list'
 
 const titleVariant = {
   hidden: { opacity: 0, y: 18 },
@@ -40,8 +42,23 @@ const descriptionVariant = {
   },
 }
 
+const viewTransition = {
+  initial: { opacity: 0, y: 20 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+  },
+  exit: {
+    opacity: 0,
+    y: -14,
+    transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
+  },
+}
+
 export function Gallery({ locale }: GalleryProps) {
   const reduceMotion = useReducedMotion()
+  const [viewMode, setViewMode] = useState<GalleryViewMode>('featured')
 
   return (
     <section id="gallery" className="gallery">
@@ -64,43 +81,23 @@ export function Gallery({ locale }: GalleryProps) {
       </div>
 
       <div className="gallery__inner">
-        <motion.div
-          className="gallery__grid"
-          variants={staggerContainer(0.08)}
-          {...getRevealProps(reduceMotion)}
-        >
-          {galleryItems.map((item) => (
-            <motion.div
-              key={item.id}
-              className="gallery__card"
-              variants={softScaleIn()}
-            >
-              <motion.div className="gallery__image-wrapper">
-                <motion.img
-                  src={item.image}
-                  alt={getLocalizedValue(item.alt, locale)}
-                  className="gallery__image"
-                />
+        <GalleryViewSwitcher activeView={viewMode} onViewChange={setViewMode} />
 
-                <motion.div
-                  className="gallery__overlay"
-                  initial={reduceMotion ? undefined : { opacity: 0 }}
-                  whileHover={reduceMotion ? undefined : { opacity: 1 }}
-                  transition={{ duration: 0.35 }}
-                >
-                  <motion.h3
-                    className="gallery__card-title"
-                    initial={reduceMotion ? undefined : { opacity: 0, y: 8 }}
-                    whileHover={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-                    transition={{ duration: 0.35 }}
-                  >
-                    {getLocalizedValue(item.title, locale)}
-                  </motion.h3>
-                </motion.div>
-              </motion.div>
+        <AnimatePresence mode="wait">
+          {viewMode === 'featured' ? (
+            <motion.div key="featured" {...viewTransition}>
+              <FeaturedProjectCarousel projects={galleryProjects} locale={locale} />
             </motion.div>
-          ))}
-        </motion.div>
+          ) : (
+            <motion.div key="list" {...viewTransition}>
+              <ProjectListPreview
+                projects={galleryProjects}
+                locale={locale}
+                reduceMotion={reduceMotion}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   )

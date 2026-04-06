@@ -11,7 +11,7 @@
 .services__inner {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 40px 20px 0;
+  padding: 34px 20px 0;
 }
 
 .services__intro-hero {
@@ -21,7 +21,7 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #0a0e1a 0%, #151922 100%);
-  padding: 50px 20px 44px;
+  padding: 0 20px 10px;
 }
 
 .services__intro-hero::before {
@@ -38,28 +38,30 @@
   padding: 0 1rem;
   position: relative;
   z-index: 1;
+  text-align: center;
 }
 
 .services__eyebrow {
-  margin-bottom: 1rem;
+  margin-bottom: 0.25rem;
   font-size: 0.875rem;
   letter-spacing: 2px;
 }
 
 .services__title {
-  margin-bottom: 1rem;
-  font-size: clamp(3rem, 6vw, 5rem);
-  line-height: 1.05;
+  margin-bottom: 0.5rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
   letter-spacing: -1px;
 }
 
 .services__description {
   margin: 0;
   max-width: 760px;
-  font-size: clamp(1.1rem, 2vw, 1.5rem);
-  line-height: 1.6;
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  line-height: 1.5;
   letter-spacing: 0.5px;
   color: #d4af37;
+  white-space: nowrap;
 }
 
 .services__grid {
@@ -250,11 +252,11 @@
   }
 
   .services__intro-hero {
-    padding: 44px 20px 38px;
+    padding: 0 20px 8px;
   }
 
   .services__inner {
-    padding: 32px 20px 0;
+    padding: 10px 20px 0;
   }
 
   .services__heading {
@@ -266,8 +268,8 @@
   }
 
   .services__title {
-    font-size: clamp(2.25rem, 9vw, 3.5rem);
-    line-height: 1.15;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    line-height: 1.1;
     letter-spacing: -0.6px;
   }
 

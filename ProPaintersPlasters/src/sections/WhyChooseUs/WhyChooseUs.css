@@ -25,7 +25,7 @@
   width: 100%;
   background: linear-gradient(135deg, #0a0e1a 0%, #151922 100%);
   overflow: hidden;
-  padding: 50px 2rem 44px;
+  padding: 40px 2rem;
   margin-bottom: 72px;
 }
 
@@ -46,27 +46,27 @@
 }
 
 .whychooseus-hero-title {
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
   color: #ffffff;
-  margin: 0 0 1rem;
+  margin: 0 0 6px;
   letter-spacing: -1px;
-  line-height: 1.05;
+  line-height: 1.1;
 }
 
 .whychooseus-hero-subtitle {
-  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
   color: #d4af37;
   font-weight: 300;
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.5;
   letter-spacing: 0.5px;
 }
 
 @media (max-width: 968px) {
   .whychooseus-hero {
     min-height: auto;
-    padding: 44px 1.25rem 38px;
+    padding: 28px 1.5rem;
     margin-bottom: 56px;
   }
 }
