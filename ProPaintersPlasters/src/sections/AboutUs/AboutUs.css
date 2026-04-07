@@ -28,7 +28,7 @@
   justify-content: center;
   background: linear-gradient(135deg, #0a0e1a 0%, #151922 100%);
   overflow: hidden;
-  padding: 40px 2rem;
+  padding: 45px 20px;
 }
 
 .about-hero::before {
@@ -51,7 +51,7 @@
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 6px;
+  margin: 0 0 6px;
   letter-spacing: -1px;
   line-height: 1.1;
 }

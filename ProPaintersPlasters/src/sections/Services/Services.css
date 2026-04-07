@@ -23,7 +23,7 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #0a0e1a 0%, #151922 100%);
-  padding: 0 20px 10px;
+  padding: 45px 20px;
 }
 
 .services__intro-hero::before {
@@ -50,7 +50,7 @@
 }
 
 .services__title {
-  margin-bottom: 0.5rem;
+  margin: 0 0 0.5rem;
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.1;
   letter-spacing: -1px;
